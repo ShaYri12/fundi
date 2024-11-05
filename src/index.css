@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url(https://db.onlinewebfonts.com/c/ef3aab6eae44b00ed09594544784e6d8?family=Axiforma+Regular);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.inter-f {
+  font-family: "Inter", serif;
+}
+
+@font-face {
+  font-family: "Axiforma-r";
+  src: url("./fonts/Axiforma-Regular.ttf");
+}
+
+.font-axiforma-r {
+  font-family: "Axiforma-r", sans-serif;
+}
+@font-face {
+  font-family: "Axiforma";
+  src: url("./fonts/Axiforma-Medium.woff");
+}
+
+.font-axiforma {
+  font-family: "Axiforma", sans-serif;
+}
+
+.slider-track {
+  display: flex;
+  white-space: nowrap;
+  animation: scroll var(--marquee-speed) linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
