@@ -9,23 +9,29 @@ import CertifiedCompanies from "./CertifiedCompanies";
 import Testimonials from "./Testimonials";
 import LearnMore from "./LearnMore";
 import MakeItRemarkable from "./MakeItRemarkable";
+import Hero from "./Hero";
+import FAQ from "./FAQ";
+import SimplifiesOperations from "./SimplifiesOperations";
 
 const Home = () => {
   return (
     <div>
       <Header />
+      <div className="transition-[background] duration-[.6s] bg-[#efefef] pb-[60px] md:pb-[80px] lg:pt-28 sm:pt-36 pt-28">
+        <Hero />
 
-      <div className="transition-[background] duration-[.6s] bg-[#efefef] pb-[60px] md:pb-[80px] mt-20">
         <Brands />
         <WhatFundi />
       </div>
 
       <BannerOne />
       <Technology />
+      <SimplifiesOperations />
       <CertifiedCompanies />
       <Testimonials />
       <LearnMore />
       <MakeItRemarkable />
+      <FAQ />
       <Footer />
     </div>
   );

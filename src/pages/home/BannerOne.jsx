@@ -22,7 +22,11 @@ const BannerOne = () => {
 
           <div className="w-full lg:w-[50%]">
             <div className="rounded-[16px] md:rounded-[24px] overflow-hidden max-h-[350px]">
-              <img src={Banner} alt="Banner" className="w-full h-full object-cover" />
+              <img
+                src={Banner}
+                alt="Banner"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>

@@ -9,7 +9,7 @@ const LearnMore = () => {
       <div className="container mx-auto">
         <div className="lg:text-center text-left mb-[30px] sm:mb-[3.5rem]">
           <h2 className="text-[32px] sm:text-[48px] font-axiformaa text-[#1c1d24] font-[400] mb-[1rem]">
-            Learn more with Mews
+            Learn more with Fundi
           </h2>
           <p className="text-[16px] text-[#494951] max-w-[420px] lg:max-w-[680px] lg:mx-auto">
             Our latest insights, guides and reports to help you solve your

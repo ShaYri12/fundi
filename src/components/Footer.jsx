@@ -9,13 +9,13 @@ const Footer = () => {
   return (
     <footer className="bg-night-black">
       <div className="py-10 border-b border-white border-opacity-50 px-4">
-        <div className="max-w-[1440px] w-full mx-auto">
+        <div className="max-w-[1440px] w-full mx-auto flex flex-wrap justify-between items-center gap-6">
           <div>
             <strong className="font-bold inter-f text-[#ffffffcc]">
               Join our newsletter
             </strong>
 
-            <div className="mt-3 flex items-center flex-col md:flex-row gap-6">
+            <div className="mt-3 flex items-center flex-col flex-wrap md:flex-row sm:gap-6 gap-4">
               <input
                 type="email"
                 placeholder="example@email.com"
@@ -28,8 +28,7 @@ const Footer = () => {
               </button>
             </div>
           </div>
-
-          <div className="mt-7 flex justify-center">
+          <div>
             <ul className="flex flex-wrap gap-4">
               <li>
                 <Link

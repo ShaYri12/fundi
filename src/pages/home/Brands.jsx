@@ -80,9 +80,10 @@ const Brands = () => {
   }, []);
 
   return (
-    <section className="mt-[60px] overflow-hidden">
+    <section className="pt-[60px] overflow-hidden">
       <div className="max-w-[1440px] text-center w-full mx-auto relative z-10 mb-6 sm:mb-[60px] px-4 text-[#494951] leading-[1.5] text-sm inter-f">
-        Our fundraising platform powers 1,200 of the world's best organisations.&nbsp;
+        Our fundraising platform powers 1,200 of the world's best
+        organisations.&nbsp;
         <Link to="#" className="text-[#ff5a65] underline">
           See our partners.
         </Link>

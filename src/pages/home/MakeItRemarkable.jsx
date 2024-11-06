@@ -1,5 +1,5 @@
 import React from "react";
-import makeItRemarkable from "../../assets/make-it-remarkable.webp";
+import makeItRemarkable from "../../assets/remarkable.png";
 
 const MakeItRemarkable = () => {
   return (
@@ -24,12 +24,17 @@ const MakeItRemarkable = () => {
 
               <p className="text-[#494951] max-w-lg">
                 Ready to take the first step towards a more efficient, flexible,
-                guest-centric approach to hospitality?
+                and profitable approach to fundraising?
               </p>
-
-              <button className="bg-[#ff5a65] hover:bg-[#ff3d5a] text-[15px] text-white font-medium py-[0.625rem] px-[1.5rem] rounded-full transition-colors flex items-center gap-2 w-fit">
-                Book a demo
-              </button>
+              <a
+                href="https://calendly.com/fundi-au/fundi-demo-call"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <button className="bg-[#ff5a65] hover:bg-[#ff3d5a] text-[15px] text-white font-medium py-[0.625rem] px-[1.5rem] rounded-full transition-colors flex items-center gap-2 w-fit">
+                  Book a demo
+                </button>
+              </a>
             </div>
           </div>
         </div>
