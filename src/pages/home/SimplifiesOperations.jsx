@@ -64,7 +64,7 @@ export default function SimplifiesOperations() {
       <div className="max-w-[1440px] mx-auto">
         <div className="flex lg:flex-row flex-col gap-12 justify-between">
           <div className="lg:w-6/12 xl:w-5/12 flex flex-col justify-center sm:gap-y-16 gap-y-[30px] px-6 lg:pr-12 lg:pl-20 py-[60px] md:pb-0 lg:pt-[120px] lg:pb-[140px]">
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               {Object.entries(tabs).map(([key, { title, icon: Icon }]) => (
                 <button
                   key={key}
@@ -83,7 +83,7 @@ export default function SimplifiesOperations() {
             </div>
             <div className="space-y-8">
               <div className="space-y-4 transition-opacity duration-300">
-                <h1 className="text-5xl font-bold font-axiformaa leading-tight">
+                <h1 className="text-[32px] sm:text-[48px] font-[400] font-axiformaa sm:leading-[125%] leading-[1.4] mb-[1rem]">
                   {tabs[activeTab].heading}{" "}
                   <span
                     className={`${
@@ -95,7 +95,7 @@ export default function SimplifiesOperations() {
                     {tabs[activeTab].title}
                   </span>
                 </h1>
-                <p className="text-lg text-gray-300">
+                <p className="text-[#FFFFFFCC]">
                   {tabs[activeTab].description}
                 </p>
               </div>
