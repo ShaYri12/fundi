@@ -77,15 +77,21 @@ const Hero = () => {
           <div className="homepage-hero-container mx-auto w-full px-[1.5rem] xl:px-[80px]">
             <div className="container__wrapper flex-col flex xl:gap-x-20 lg:gap-x-10 gap-x-20 lg:flex-row gap-y-[60px] sm:gap-y-[80px]">
               <div className="relative flex items-center z-index-10 lg:w-full max-w-[628px] sm:py-20">
-                <div className="gap-y-6 flex flex-col lg:max-w-[520px] sm:max-w-[90%] xxl:max-w-full relative sm:py-0 py-5">
-                  <h3 className="md:max-w-[485px] sm:text-[56px] text-[40px] font-axiformaa text-[#1c1d24] font-[400] mb-[1rem] sm:leading-[1.25] leading-[1.3]">
-                    The platform for the new era of fundraising&nbsp;
-                  </h3>
-                  <p className="text-[#494951] text-[16px]">
-                    Go beyond a simple upgrade. Scale your operations, maximize
-                    your profit, and deliver remarkable guest experiences with
-                    Mews: the cloud hospitality system that works for you.
-                  </p>
+                <div className="homepage-hero__lozenge sm:block hidden"></div>
+                <div className="gap-y-6 flex flex-col lg:max-w-[520px] sm:max-w-[90%] xxl:max-w-full relative sm:py-0  py-5">
+                  <div className="text-content cms-content">
+                    <h3 className="md:max-w-[485px] sm:text-[56px] text-[40px] font-axiformaa text-[#1c1d24] font-[400] mb-[1rem] sm:leading-[1.25] leading-[1.3]">
+                      The platform for the new era of fundraising&nbsp;
+                    </h3>
+                    <div className="md:max-w-[530px] lg:max-w-[430px] sm:max-w-[90%]">
+                      <p className="text-[#494951] text-[16px]">
+                        Go beyond a simple upgrade. Scale your operations,
+                        maximize your profit, and deliver remarkable guest
+                        experiences with Mews: the cloud hospitality system that
+                        works for you.
+                      </p>
+                    </div>
+                  </div>
                   <a
                     href="https://calendly.com/fundi-au/fundi-demo-call"
                     target="_blank"
@@ -98,7 +104,7 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="xxl:w-full xl:w-[90%] flex items-center justify-end">
+              <div className="xxl:w-full xl:w-[90%] lg:pe-0 pe-[40px] flex items-center justify-end">
                 <div className="relative flex items-center w-full h-full justify-start md:justify-end">
                   <div className="relative sm:h-[572px] h-[400px] w-[572px]">
                     <video
