@@ -9,13 +9,13 @@ const Footer = () => {
   return (
     <footer className="bg-night-black">
       <div className="py-10 border-b border-white border-opacity-50 px-4">
-        <div className="max-w-[1440px] w-full mx-auto flex flex-wrap justify-between items-center gap-6">
+        <div className="max-w-[1440px] w-full mx-auto flex md:flex-row flex-col flex-wrap justify-between md:items-center gap-6">
           <div>
             <strong className="font-bold inter-f text-[#ffffffcc]">
               Join our newsletter
             </strong>
 
-            <div className="mt-3 flex items-center flex-col flex-wrap md:flex-row sm:gap-6 gap-4">
+            <div className="mt-3 flex md:items-center justify-start flex-col sm:flex-row sm:gap-6 gap-4">
               <input
                 type="email"
                 placeholder="example@email.com"
@@ -23,7 +23,7 @@ const Footer = () => {
                 className="max-w-full md:max-w-[300px] w-full border focus:border-[#3b37f2] hover:border-[#8d8dac] border-white outline-none rounded-[80px] min-h-11 py-[10px] px-5 bg-transparent text-sm inter-f transition-all duration-500"
               />
 
-              <button className="border border-[#ff5a65] text-[#ff5a65] py-[10px] px-5 rounded-[80px] text-[15px] inter-f font-medium min-w-full md:min-w-[130px] transition-all duration-500 hover:border-[#db4550] hover:text-[#db4550]">
+              <button className="border border-[#ff5a65] text-[#ff5a65] py-[10px] px-5 rounded-[80px] text-[15px] inter-f font-medium min-w-[130px] w-[130px] transition-all duration-500 hover:border-[#db4550] hover:text-[#db4550]">
                 Subscribe
               </button>
             </div>
