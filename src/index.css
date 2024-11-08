@@ -95,72 +95,51 @@ video {
   }
 }
 
-/* Hero bubble */
-.tag-bubble__container:nth-child(2n) {
-  bottom: 80px;
-  left: -40px;
-}
-.tag-bubble__container {
-  position: absolute;
-}
-
-.tag-bubble {
-  transition: all 0.2s;
-}
-
-.tag-bubble__container:nth-child(odd) {
-  left: -17px;
-  top: 48px;
-}
-.tag-bubble__container {
-  position: absolute;
-}
-
-.tag-bubble__container:nth-child(odd) .vertical-line {
-  background: #fff;
-  height: 193px;
-  left: calc(100% + 113px);
+/* bubble */
+.horizontal-line {
   position: absolute;
   top: 50%;
-  transform: scale(0);
-  transition-delay: 0.35s, 0s;
-  transition-duration: 0.15s;
-  transition-property: transform, opacity;
-  transition-timing-function: ease-in;
-  width: 1px;
-}
-
-.tag-bubble__container:nth-child(odd) .horizontal-line {
-  background: #fff;
+  left: 0;
   height: 1px;
-  left: 100%;
-  position: absolute;
-  top: 50%;
-  transform: scale(0);
-  transform-origin: left;
-  transition-delay: 0.2s, 0s;
-  transition-duration: 0.15s;
-  transition-property: transform, opacity;
-  transition-timing-function: ease-in;
-  width: 113px;
+  background-color: white;
+  width: 0;
+  transition: width 0.3s ease-in-out;
 }
 
-.tag-bubble__container:nth-child(odd) .point {
-  background: #fff;
-  border-radius: 50%;
-  content: "";
-  display: block;
-  height: 193px;
-  height: 4px;
-  left: calc(100% + 112px);
-  opacity: 0;
+.vertical-line {
   position: absolute;
-  top: 214px;
-  transform: translateX(-0.5px);
-  transition-delay: 0.5s, 0s;
-  transition-duration: 0.15s;
-  transition-property: opacity, transform;
-  transition-timing-function: ease-in;
+  left: 0;
+  top: 50%;
   width: 1px;
-  width: 4px;
+  background-color: white;
+  height: 0;
+  opacity: 0; /* Hide initially */
+  transition: height 0.3s ease-in-out, opacity 0s linear 0.4s; /* Delay opacity change */
+}
+
+@keyframes growWidth {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100px; /* Adjust based on your design */
+  }
+}
+
+@keyframes growHeight {
+  from {
+    height: 0;
+  }
+  to {
+    height: 70px; /* Adjust based on your design */
+  }
+}
+
+.animate-horizontal {
+  animation: growWidth 0.4s ease-in-out forwards;
+}
+
+.animate-vertical {
+  animation: growHeight 0.4s ease-in-out 0.2s forwards; /* Ensure vertical animation starts after horizontal */
+  opacity: 1; /* Make visible once animation starts */
 }

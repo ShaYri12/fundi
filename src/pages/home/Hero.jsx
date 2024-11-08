@@ -2,37 +2,19 @@ import React, { useState, useEffect } from "react";
 import heroVideo from "../../assets/hero-video.mp4";
 
 const Hero = () => {
-  const [visibleBubbles, setVisibleBubbles] = useState([]);
+  const [visibleBubbleIndex, setVisibleBubbleIndex] = useState(0);
+
+  const bubbles = ["Schools", "Clubs", "Churches", "WInning"];
 
   useEffect(() => {
-    const bubbleIndexes = Array.from({ length: 8 }, (_, i) => i);
+    const intervalId = setInterval(() => {
+      setVisibleBubbleIndex((prevIndex) =>
+        prevIndex === bubbles.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 4000);
 
-    const showRandomBubble = () => {
-      setVisibleBubbles((prevVisibleBubbles) => {
-        const remainingBubbles = bubbleIndexes.filter(
-          (index) => !prevVisibleBubbles.includes(index)
-        );
-        if (remainingBubbles.length === 0) return prevVisibleBubbles;
-
-        const randomIndex = Math.floor(Math.random() * remainingBubbles.length);
-        return [...prevVisibleBubbles, remainingBubbles[randomIndex]];
-      });
-    };
-
-    const intervalId = setInterval(showRandomBubble, 3000);
     return () => clearInterval(intervalId);
   }, []);
-
-  const bubbles = [
-    "Hotels",
-    "Wellness space",
-    "Long stays",
-    "Co-working",
-    "Glamping",
-    "Hostels",
-    "Events",
-    "Parking",
-  ];
 
   return (
     <div className="relative overflow-x-clip">
@@ -41,21 +23,15 @@ const Hero = () => {
           <div className="homepage-hero-container mx-auto w-full px-[1.5rem] xl:px-[80px]">
             <div className="container__wrapper flex-col flex xl:gap-x-20 lg:gap-x-10 gap-x-20 lg:flex-row gap-y-[60px] sm:gap-y-[80px]">
               <div className="relative flex items-center z-index-10 lg:w-full max-w-[628px] sm:py-20">
-                <div className="homepage-hero__lozenge sm:block hidden"></div>
-                <div className="gap-y-6 flex flex-col lg:max-w-[520px] sm:max-w-[90%] xxl:max-w-full relative sm:py-0  py-5">
-                  <div className="text-content cms-content">
-                    <h3 className="md:max-w-[485px] sm:text-[56px] text-[40px] font-axiformaa text-[#1c1d24] font-[400] mb-[1rem] sm:leading-[1.25] leading-[1.3]">
-                      The platform for the new era of fundraising&nbsp;
-                    </h3>
-                    <div className="md:max-w-[530px] lg:max-w-[430px] sm:max-w-[90%]">
-                      <p className="text-[#494951] text-[16px]">
-                        Go beyond a simple upgrade. Scale your operations,
-                        maximize your profit, and deliver remarkable guest
-                        experiences with Mews: the cloud hospitality system that
-                        works for you.
-                      </p>
-                    </div>
-                  </div>
+                <div className="gap-y-6 flex flex-col lg:max-w-[520px] sm:max-w-[90%] xxl:max-w-full relative sm:py-0 py-5">
+                  <h3 className="md:max-w-[485px] sm:text-[56px] text-[40px] font-axiformaa text-[#1c1d24] font-[400] mb-[1rem] sm:leading-[1.25] leading-[1.3]">
+                    The platform for the new era of fundraising&nbsp;
+                  </h3>
+                  <p className="text-[#494951] text-[16px]">
+                    Go beyond a simple upgrade. Scale your operations, maximize
+                    your profit, and deliver remarkable guest experiences with
+                    Mews: the cloud hospitality system that works for you.
+                  </p>
                   <a
                     href="https://calendly.com/fundi-au/fundi-demo-call"
                     target="_blank"
@@ -70,9 +46,9 @@ const Hero = () => {
 
               <div className="xxl:w-full xl:w-[90%] flex items-center justify-end">
                 <div className="relative flex items-center w-full h-full justify-start md:justify-end">
-                  <div className="w-fit relative sm:h-[572px] h-[400px]">
+                  <div className="relative sm:h-[572px] h-[400px] w-[572px]">
                     <video
-                      className="homepage-video relative z-1 rounded-[100px] h-full w-[572px] object-cover overflow-hidden"
+                      className="homepage-video relative z-0 rounded-[100px] h-full w-full object-cover overflow-hidden"
                       src={heroVideo}
                       preload=""
                       loop
@@ -84,26 +60,47 @@ const Hero = () => {
 
                     {bubbles.map((bubble, index) => (
                       <div
-                        className={`tag-bubble__container ${
-                          visibleBubbles.includes(index) ? "bubble-visible" : ""
-                        }`}
                         key={index}
+                        className={`tag-bubble__container absolute transition ${
+                          visibleBubbleIndex === index
+                            ? "opacity-100"
+                            : "opacity-0"
+                        }`}
+                        style={{
+                          top: `${index * 70 + 30}px`,
+                          left: "-35px",
+                          transition: "opacity 0.5s ease-in-out",
+                        }}
                       >
-                        <div
-                          className="vertical-line"
-                          style={{ opacity: "0", transform: "scale(0)" }}
-                        ></div>
-                        <div
-                          className="horizontal-line"
-                          style={{ opacity: "0", transform: "scale(0)" }}
-                        ></div>
-                        <div
-                          className="point"
-                          style={{ opacity: "0", transform: "scale(0)" }}
-                        ></div>
-                        <p className="tag-bubble text-[18px] rounded-[33px] border-2 border-white bg-white-800 py-1.5 px-4 w-fit opacity-0">
+                        <p className="tag-bubble text-[18px] rounded-full border-2 border-white bg-[#FFFFFFCC] py-1.5 px-4 w-fit relative z-10">
                           {bubble}
                         </p>
+                        <div
+                          className={`horizontal-line absolute h-[1px] bg-white ${
+                            visibleBubbleIndex === index
+                              ? "animate-horizontal"
+                              : ""
+                          }`}
+                          style={{
+                            width: "100px",
+                            top: "50%",
+                            left: "100%",
+                            transform: "translateY(-50%)",
+                          }}
+                        ></div>
+                        <div
+                          className={`vertical-line absolute w-[1px] bg-white ${
+                            visibleBubbleIndex === index
+                              ? "animate-vertical"
+                              : ""
+                          }`}
+                          style={{
+                            height: "70px",
+                            top: "50%",
+                            left: "calc(100% + 100px)", // Ensures it starts where horizontal ends
+                            transform: "translateY(-0.6%)",
+                          }}
+                        ></div>
                       </div>
                     ))}
                   </div>
