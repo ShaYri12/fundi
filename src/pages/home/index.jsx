@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <div className="transition-[background] duration-[.6s] bg-[#efefef] pb-[60px] md:pb-[80px] lg:pt-28 sm:pt-36 pt-28">
+      <div className="transition-[background] duration-[.6s] bg-[#efefef] pb-[60px] md:pb-[80px] lg:pt-28 sm:pt-28 pt-[80px]">
         <Hero />
 
         <Brands />

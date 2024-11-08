@@ -99,7 +99,7 @@ video {
 .horizontal-line {
   position: absolute;
   top: 50%;
-  width: 100px;
+  width: 70px;
   height: 1px;
   left: 100%;
   transform: translateY(-50%);
@@ -131,12 +131,12 @@ video {
 
 .vertical-line {
   position: absolute;
-  left: calc(100% + 100px);
+  left: calc(100% + 70px);
   top: 50%;
   transform: translateY(-0.6%);
   width: 1px;
   background-color: white;
-  height: 70px;
+  height: 100px;
   transition: height 0.2s ease-in-out, opacity 0s linear 0.3s; /* Delay opacity change */
 }
 
@@ -167,7 +167,7 @@ video {
     width: 0;
   }
   to {
-    width: 100px; /* Adjust based on your design */
+    width: 70px; /* Adjust based on your design */
   }
 }
 
@@ -176,7 +176,7 @@ video {
     height: 0;
   }
   to {
-    height: 70px; /* Adjust based on your design */
+    height: 100px; /* Adjust based on your design */
   }
 }
 
