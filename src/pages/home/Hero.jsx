@@ -1,19 +1,40 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import heroVideo from "../../assets/hero-video.mp4";
 
 const Hero = () => {
   const [visibleBubbleIndex, setVisibleBubbleIndex] = useState(0);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const videoRef = useRef(null);
 
-  const bubbles = ["Schools", "Clubs", "Churches", "WInning"];
+  const bubbles = ["Schools", "Clubs", "Churches", "Winning"];
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setVisibleBubbleIndex((prevIndex) =>
-        prevIndex === bubbles.length - 1 ? 0 : prevIndex + 1
-      );
+      if (isVideoPlaying) {
+        setVisibleBubbleIndex((prevIndex) =>
+          prevIndex === bubbles.length - 1 ? 0 : prevIndex + 1
+        );
+      }
     }, 4000);
 
     return () => clearInterval(intervalId);
+  }, [isVideoPlaying]);
+
+  useEffect(() => {
+    const handleVideoPlay = () => {
+      setIsVideoPlaying(true);
+    };
+
+    const videoElement = videoRef.current;
+    if (videoElement) {
+      videoElement.addEventListener("play", handleVideoPlay);
+    }
+
+    return () => {
+      if (videoElement) {
+        videoElement.removeEventListener("play", handleVideoPlay);
+      }
+    };
   }, []);
 
   return (
@@ -48,61 +69,63 @@ const Hero = () => {
                 <div className="relative flex items-center w-full h-full justify-start md:justify-end">
                   <div className="relative sm:h-[572px] h-[400px] w-[572px]">
                     <video
+                      ref={videoRef}
                       className="homepage-video relative z-0 rounded-[100px] h-full w-full object-cover overflow-hidden"
                       src={heroVideo}
                       preload=""
                       loop
                       autoPlay
                       muted
-                      webkitPlaysinline
+                      webkitPlaysinline="true"
                       playsInline
                     ></video>
 
-                    {bubbles.map((bubble, index) => (
-                      <div
-                        key={index}
-                        className={`tag-bubble__container absolute transition ${
-                          visibleBubbleIndex === index
-                            ? "opacity-100"
-                            : "opacity-0"
-                        }`}
-                        style={{
-                          top: `${index * 70 + 30}px`,
-                          left: "-35px",
-                          transition: "opacity 0.5s ease-in-out",
-                        }}
-                      >
-                        <p className="tag-bubble text-[18px] rounded-full border-2 border-white bg-[#FFFFFFCC] py-1.5 px-4 w-fit relative z-10">
-                          {bubble}
-                        </p>
+                    {isVideoPlaying &&
+                      bubbles.map((bubble, index) => (
                         <div
-                          className={`horizontal-line absolute h-[1px] bg-white ${
+                          key={index}
+                          className={`tag-bubble__container absolute transition ${
                             visibleBubbleIndex === index
-                              ? "animate-horizontal"
-                              : ""
+                              ? "opacity-100"
+                              : "opacity-0"
                           }`}
                           style={{
-                            width: "100px",
-                            top: "50%",
-                            left: "100%",
-                            transform: "translateY(-50%)",
+                            top: `${index * 70 + 30}px`,
+                            left: "-35px",
+                            transition: "opacity 0.5s ease-in-out",
                           }}
-                        ></div>
-                        <div
-                          className={`vertical-line absolute w-[1px] bg-white ${
-                            visibleBubbleIndex === index
-                              ? "animate-vertical"
-                              : ""
-                          }`}
-                          style={{
-                            height: "70px",
-                            top: "50%",
-                            left: "calc(100% + 100px)", // Ensures it starts where horizontal ends
-                            transform: "translateY(-0.6%)",
-                          }}
-                        ></div>
-                      </div>
-                    ))}
+                        >
+                          <p className="tag-bubble text-[18px] rounded-full border-2 border-white bg-[#FFFFFFCC] py-1.5 px-4 w-fit relative z-10">
+                            {bubble}
+                          </p>
+                          <div
+                            className={`horizontal-line absolute h-[1px] bg-white ${
+                              visibleBubbleIndex === index
+                                ? "animate-horizontal"
+                                : ""
+                            }`}
+                            style={{
+                              width: "100px",
+                              top: "50%",
+                              left: "100%",
+                              transform: "translateY(-50%)",
+                            }}
+                          ></div>
+                          <div
+                            className={`vertical-line absolute w-[1px] bg-white ${
+                              visibleBubbleIndex === index
+                                ? "animate-vertical"
+                                : ""
+                            }`}
+                            style={{
+                              height: "70px",
+                              top: "50%",
+                              left: "calc(100% + 100px)", // Ensures it starts where horizontal ends
+                              transform: "translateY(-0.6%)",
+                            }}
+                          ></div>
+                        </div>
+                      ))}
                   </div>
                 </div>
               </div>
