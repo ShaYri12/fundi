@@ -16,50 +16,35 @@ const Hero = () => {
     "Live supporter analytics",
     "Integrated volunteer portal & silent auctions",
   ];
-  const bubbleDurations = [2500, 2600, 2800, 2500, 3000, 2500, 2600, 3400]; // Durations for each bubble in milliseconds
 
   useEffect(() => {
-    let timeoutId;
+    const videoElement = videoRef.current;
 
-    const showNextBubble = () => {
-      if (isVideoPlaying) {
-        const nextIndex =
-          visibleBubbleIndex === bubbles.length - 1
-            ? 0
-            : visibleBubbleIndex + 1;
-
-        setVisibleBubbleIndex(nextIndex);
-        // Set timeout for the next bubble's display duration
-        timeoutId = setTimeout(showNextBubble, bubbleDurations[nextIndex]);
+    const updateBubbleIndex = () => {
+      if (isVideoPlaying && videoElement && videoElement.duration) {
+        const bubbleDuration = videoElement.duration / bubbles.length;
+        const currentBubbleIndex = Math.floor(
+          videoElement.currentTime / bubbleDuration
+        );
+        setVisibleBubbleIndex(currentBubbleIndex);
       }
+
+      requestAnimationFrame(updateBubbleIndex);
     };
 
-    // Start showing bubbles when video starts playing
     if (isVideoPlaying) {
-      timeoutId = setTimeout(
-        showNextBubble,
-        bubbleDurations[visibleBubbleIndex]
-      );
+      requestAnimationFrame(updateBubbleIndex);
     }
 
-    return () => clearTimeout(timeoutId);
-  }, [visibleBubbleIndex, isVideoPlaying]);
-
-  useEffect(() => {
-    const handleVideoPlay = () => {
-      setIsVideoPlaying(true);
-    };
-
+    const handleVideoPlay = () => setIsVideoPlaying(true);
     const handleVideoEnd = () => {
-      // Reset bubble index when the video ends and loops
       setVisibleBubbleIndex(0);
-      setIsVideoPlaying(false); // Stop the animation and restart
+      setIsVideoPlaying(false);
     };
 
-    const videoElement = videoRef.current;
     if (videoElement) {
       videoElement.addEventListener("play", handleVideoPlay);
-      videoElement.addEventListener("ended", handleVideoEnd); // Listen for video end event
+      videoElement.addEventListener("ended", handleVideoEnd);
     }
 
     return () => {
@@ -68,7 +53,7 @@ const Hero = () => {
         videoElement.removeEventListener("ended", handleVideoEnd);
       }
     };
-  }, []);
+  }, [isVideoPlaying]);
 
   return (
     <div className="relative overflow-x-clip">
@@ -78,7 +63,7 @@ const Hero = () => {
             <div className="container__wrapper flex-col flex xl:gap-x-20 lg:gap-x-10 gap-x-20 lg:flex-row gap-y-[60px] sm:gap-y-[80px]">
               <div className="relative flex items-center z-index-10 lg:w-full max-w-[628px] sm:py-20">
                 <div className="homepage-hero__lozenge sm:block hidden"></div>
-                <div className="gap-y-6 flex flex-col lg:max-w-[520px] sm:max-w-[90%] xxl:max-w-full relative sm:py-0  py-5">
+                <div className="gap-y-6 flex flex-col lg:max-w-[520px] sm:max-w-[90%] xxl:max-w-full relative sm:py-0 py-5">
                   <div className="text-content cms-content">
                     <h3 className="md:max-w-[485px] sm:text-[56px] text-[40px] font-axiformaa text-[#1c1d24] font-[400] mb-[1rem] sm:leading-[1.25] leading-[1.3]">
                       The platform for the new era of fundraising&nbsp;
@@ -129,8 +114,8 @@ const Hero = () => {
                               : "opacity-0"
                           }`}
                           style={{
-                            top: index % 2 === 0 ? `${70 + 30}px` : "auto", // Position for odd index
-                            bottom: index % 2 !== 0 ? `${70 + 30}px` : "auto", // Position for even index
+                            top: index % 2 === 0 ? `${70 + 30}px` : "auto",
+                            bottom: index % 2 !== 0 ? `${70 + 30}px` : "auto",
                             left: "-40px",
                             transition: "opacity 0.4s ease-in-out",
                           }}
