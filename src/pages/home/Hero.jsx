@@ -6,33 +6,66 @@ const Hero = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const videoRef = useRef(null);
 
-  const bubbles = ["Schools", "Clubs", "Churches", "Winning"];
+  const bubbles = [
+    "Church fundraising",
+    "Club fundraising",
+    "School fundraising",
+    "Seamless integration",
+    "Lasting community impact",
+    "Real time support",
+    "Live supporter analytics",
+    "Integrated volunteer portal & silent auctions",
+  ];
+  const bubbleDurations = [2500, 2600, 2800, 2500, 3000, 2500, 2600, 3400]; // Durations for each bubble in milliseconds
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      if (isVideoPlaying) {
-        setVisibleBubbleIndex((prevIndex) =>
-          prevIndex === bubbles.length - 1 ? 0 : prevIndex + 1
-        );
-      }
-    }, 4000);
+    let timeoutId;
 
-    return () => clearInterval(intervalId);
-  }, [isVideoPlaying]);
+    const showNextBubble = () => {
+      if (isVideoPlaying) {
+        const nextIndex =
+          visibleBubbleIndex === bubbles.length - 1
+            ? 0
+            : visibleBubbleIndex + 1;
+
+        setVisibleBubbleIndex(nextIndex);
+        // Set timeout for the next bubble's display duration
+        timeoutId = setTimeout(showNextBubble, bubbleDurations[nextIndex]);
+      }
+    };
+
+    // Start showing bubbles when video starts playing
+    if (isVideoPlaying) {
+      timeoutId = setTimeout(
+        showNextBubble,
+        bubbleDurations[visibleBubbleIndex]
+      );
+    }
+
+    return () => clearTimeout(timeoutId);
+  }, [visibleBubbleIndex, isVideoPlaying]);
 
   useEffect(() => {
     const handleVideoPlay = () => {
       setIsVideoPlaying(true);
     };
 
+    const handleVideoEnd = () => {
+      // Reset bubble index when the video ends and loops
+      setVisibleBubbleIndex(0);
+      setIsVideoPlaying(false); // Stop the animation and restart
+    };
+
     const videoElement = videoRef.current;
     if (videoElement) {
       videoElement.addEventListener("play", handleVideoPlay);
+      videoElement.addEventListener("ended", handleVideoEnd); // Listen for video end event
     }
 
     return () => {
       if (videoElement) {
         videoElement.removeEventListener("play", handleVideoPlay);
+        videoElement.removeEventListener("ended", handleVideoEnd);
       }
     };
   }, []);
@@ -90,39 +123,41 @@ const Hero = () => {
                               : "opacity-0"
                           }`}
                           style={{
-                            top: `${index * 70 + 30}px`,
-                            left: "-35px",
-                            transition: "opacity 0.5s ease-in-out",
+                            top: index % 2 === 0 ? `${70 + 30}px` : "auto", // Position for odd index
+                            bottom: index % 2 !== 0 ? `${70 + 30}px` : "auto", // Position for even index
+                            left: "-40px",
+                            transition: "opacity 0.4s ease-in-out",
                           }}
                         >
                           <p className="tag-bubble text-[18px] rounded-full border-2 border-white bg-[#FFFFFFCC] py-1.5 px-4 w-fit relative z-10">
                             {bubble}
                           </p>
                           <div
-                            className={`horizontal-line absolute h-[1px] bg-white ${
+                            className={`${
+                              index % 2 === 0
+                                ? "horizontal-line"
+                                : "horizontal-line2"
+                            } absolute bg-white ${
                               visibleBubbleIndex === index
-                                ? "animate-horizontal"
+                                ? index % 2 === 0
+                                  ? "animate-horizontal"
+                                  : "animate-horizontal2"
                                 : ""
                             }`}
-                            style={{
-                              width: "100px",
-                              top: "50%",
-                              left: "100%",
-                              transform: "translateY(-50%)",
-                            }}
                           ></div>
+
                           <div
-                            className={`vertical-line absolute w-[1px] bg-white ${
+                            className={`${
+                              index % 2 === 0
+                                ? "vertical-line"
+                                : "vertical-line2"
+                            } absolute bg-white ${
                               visibleBubbleIndex === index
-                                ? "animate-vertical"
+                                ? index % 2 === 0
+                                  ? "animate-vertical"
+                                  : "animate-vertical2"
                                 : ""
                             }`}
-                            style={{
-                              height: "70px",
-                              top: "50%",
-                              left: "calc(100% + 100px)", // Ensures it starts where horizontal ends
-                              transform: "translateY(-0.6%)",
-                            }}
                           ></div>
                         </div>
                       ))}

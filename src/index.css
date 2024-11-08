@@ -99,22 +99,67 @@ video {
 .horizontal-line {
   position: absolute;
   top: 50%;
-  left: 0;
+  width: 100px;
+  height: 1px;
+  left: 100%;
+  transform: translateY(-50%);
+  background-color: white;
+  transition: width 0.2s ease-in-out;
+}
+
+.horizontal-line2 {
+  position: absolute;
+  bottom: calc(100% + 100px);
+  left: 70%;
+  width: 70px;
   height: 1px;
   background-color: white;
-  width: 0;
-  transition: width 0.3s ease-in-out;
+  transition: width 0.2s ease-in-out, opacity 0s linear 0.3s;
+}
+
+.horizontal-line2::after {
+  content: "";
+  position: absolute;
+  width: 10px; /* Size of the SVG container */
+  height: 10px;
+  right: -5px; /* Adjust to position the dot at the end */
+  top: 50%;
+  transform: translateY(-50%);
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="white"/></svg>')
+    no-repeat center;
 }
 
 .vertical-line {
   position: absolute;
-  left: 0;
+  left: calc(100% + 100px);
   top: 50%;
+  transform: translateY(-0.6%);
   width: 1px;
   background-color: white;
-  height: 0;
-  opacity: 0; /* Hide initially */
-  transition: height 0.3s ease-in-out, opacity 0s linear 0.4s; /* Delay opacity change */
+  height: 70px;
+  transition: height 0.2s ease-in-out, opacity 0s linear 0.3s; /* Delay opacity change */
+}
+
+.vertical-line::after {
+  content: "";
+  position: absolute;
+  width: 10px; /* Size of the SVG container */
+  height: 10px;
+  left: 50%;
+  top: 96%;
+  transform: translateX(-50%);
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="white"/></svg>')
+    no-repeat center;
+}
+
+.vertical-line2 {
+  position: absolute;
+  bottom: 100%;
+  left: 70%;
+  width: 1px;
+  background-color: white;
+  height: 100px;
+  transition: height 0.2s ease-in-out;
 }
 
 @keyframes growWidth {
@@ -135,11 +180,38 @@ video {
   }
 }
 
+@keyframes growWidth2 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 70px; /* Adjust based on your design */
+  }
+}
+
+@keyframes growHeight2 {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100px; /* Adjust based on your design */
+  }
+}
+
 .animate-horizontal {
-  animation: growWidth 0.4s ease-in-out forwards;
+  animation: growWidth 0.3s ease-in-out forwards;
 }
 
 .animate-vertical {
-  animation: growHeight 0.4s ease-in-out 0.2s forwards; /* Ensure vertical animation starts after horizontal */
+  animation: growHeight 0.3s ease-in-out 0.2s forwards; /* Ensure vertical animation starts after horizontal */
   opacity: 1; /* Make visible once animation starts */
+}
+
+.animate-horizontal2 {
+  animation: growWidth2 0.3s ease-in-out 0.2s forwards; /* Ensure vertical animation starts after horizontal */
+  opacity: 1; /* Make visible once animation starts */
+}
+
+.animate-vertical2 {
+  animation: growHeight2 0.3s ease-in-out forwards;
 }
