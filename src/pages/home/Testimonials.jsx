@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Marquee from "react-marquee-slider";
 import { v4 as uuidv4 } from "uuid";
 import Image1 from "../../assets/TESTIMONIALS/1.png";
 import Image2 from "../../assets/TESTIMONIALS/2.jpeg";
 
 const Testimonials = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
   const testimonials = [
     {
       image: Image1,
@@ -89,10 +91,14 @@ const Testimonials = () => {
         </div>
       </div>
 
-      <div className="hidden md:block w-full max-w-[1440px] md:px-0 px-4">
+      <div
+        className="hidden md:block w-full  md:px-0 px-4"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         {/* First Row of Marquee - First Half of Testimonials */}
         <Marquee
-          velocity={20}
+          velocity={isHovered ? 0 : 20} // Stop the marquee when hovered
           minScale={0.7}
           resetAfterTries={200}
           direction="rtl"
@@ -121,7 +127,7 @@ const Testimonials = () => {
 
         {/* Second Row of Marquee - Second Half of Testimonials */}
         <Marquee
-          velocity={20}
+          velocity={isHovered ? 0 : 20} // Stop the marquee when hovered
           minScale={0.7}
           resetAfterTries={200}
           direction="rtl"
