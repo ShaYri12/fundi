@@ -6,11 +6,11 @@ const Hospitality = () => {
     {
       heading: "Empower your journey, amplify your mission.",
       description: [
-        " - No contracts, full flexibility.",
-        " - Tick Zero fees for hosting, websites, or dashboards.",
-        " - Tick 100% of donations go directly to your organisation.",
-        " - Tick Supporters cover all processing fees, ensuring no cost to you.",
-        " - Tick Full transparency with real-time reporting.",
+        " No contracts, full flexibility.",
+        " Tick Zero fees for hosting, websites, or dashboards.",
+        " Tick 100% of donations go directly to your organisation.",
+        " Tick Supporters cover all processing fees, ensuring no cost to you.",
+        " Tick Full transparency with real-time reporting.",
       ],
       image: "/all.png",
     },
