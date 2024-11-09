@@ -78,18 +78,18 @@ const Header = () => {
       }`}
     >
       <div className="flex items-center justify-between gap-2 sm:gap-10 max-w-[1440px] w-full mx-auto min-h-[72.5px] md:py-[20px] lg:py-3.5 z-50">
-        <Link to="/" className="relative z-[60]">
-          <img
-            src={FundiLogo}
-            alt="FundiLogo"
-            className="h-10"
-            style={{
-              mixBlendMode: "screen",
-              opacity: 0.9,
-            }}
-          />
-        </Link>
-        <div className="flex gap-2">
+        <div className="flex items-center gap-9">
+          <Link to="/" className="relative z-[60]">
+            <img
+              src={FundiLogo}
+              alt="FundiLogo"
+              className="h-10"
+              style={{
+                mixBlendMode: "screen",
+                opacity: 0.9,
+              }}
+            />
+          </Link>
           <ul className="hidden lg:flex items-center flex-1">
             <li>
               <a
@@ -108,7 +108,9 @@ const Header = () => {
               </a>
             </li>
           </ul>
+        </div>
 
+        <div className="flex gap-2">
           <div className="flex items-center gap-4">
             <div className="relative lg:block hidden">
               <img
