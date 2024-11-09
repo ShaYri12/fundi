@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { IoMdCheckmark } from "react-icons/io";
+import { FaArrowDown } from "react-icons/fa6";
 
 const Hospitality = () => {
   const sections = [
@@ -62,6 +63,10 @@ const Hospitality = () => {
     };
   }, []);
 
+  const scrollDown = () => {
+    window.scrollBy({ top: 550, behavior: "smooth" });
+  };
+
   return (
     <div className="relative min-h-[300vh] px-[6%] bg-gray-100">
       <div className="max-w-7xl mx-auto py-12 grid grid-cols-2 gap-8">
@@ -104,12 +109,20 @@ const Hospitality = () => {
                   )}
                 </div>
               </div>
+              {index === 0 && (
+                <button
+                  onClick={scrollDown}
+                  className="border m-10 animate-bounce border-black p-4 rounded-full"
+                >
+                  <FaArrowDown size={20} />
+                </button>
+              )}
             </div>
           ))}
         </div>
 
         {/* Image with Cross-Fade Effect */}
-        <div className="sticky top-24 w-full h-[80vh] flex items-center">
+        {/* <div className="sticky top-24 w-full h-[80vh] flex items-center">
           {sections.map((section, index) => (
             <img
               key={index}
@@ -118,6 +131,24 @@ const Hospitality = () => {
               className={`absolute top-10  w-full h-auto object-cover rounded-lg transition-opacity duration-500 ${
                 index === activeIndex ? "opacity-100" : "opacity-0"
               }`}
+            />
+          ))}
+        </div> */}
+        <div className="sticky top-24 w-full h-[80vh] flex items-center">
+          {sections.map((section, index) => (
+            <img
+              key={index}
+              src={section.image}
+              alt="Hospitality"
+              className={`absolute top-10 w-full h-auto object-cover rounded-lg transition-opacity duration-500 ${
+                index === activeIndex
+                  ? "opacity-100"
+                  : "opacity-0 animate-fadeOut"
+              }`}
+              style={{
+                transition: "opacity 0.5s ease-in-out",
+                display: index === activeIndex ? "block" : "none", // This ensures it’s hidden after fading out
+              }}
             />
           ))}
         </div>
