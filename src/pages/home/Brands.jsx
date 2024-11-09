@@ -7,7 +7,7 @@ import Logo3 from "../../assets/logos/Austi-Church-Logo.png";
 import Logo4 from "../../assets/logos/brisbane-lions.png";
 import Logo5 from "../../assets/logos/broncos.png";
 import Logo6 from "../../assets/logos/churches-of-chirst.png";
-import Logo7 from "../../assets/logos/citipointe-church.jpg";
+import Logo7 from "../../assets/logos/citipointe-church.png";
 import Logo8 from "../../assets/logos/collinwood-footbal-club.png";
 import Logo9 from "../../assets/logos/cowboys.png";
 import Logo10 from "../../assets/logos/crestview.png";
@@ -18,7 +18,7 @@ import Logo14 from "../../assets/logos/images.png";
 import Logo15 from "../../assets/logos/institute-of-sport.png";
 import Logo16 from "../../assets/logos/la-trobe.png";
 import Logo17 from "../../assets/logos/logo1.png";
-import Logo18 from "../../assets/logos/logo2.jpg";
+import Logo18 from "../../assets/logos/logo2.png";
 import Logo19 from "../../assets/logos/mfg.png";
 import Logo20 from "../../assets/logos/mosman.png";
 import Logo21 from "../../assets/logos/ncca_logo.png";
@@ -116,7 +116,6 @@ const Brands = () => {
               src={icon}
               alt="banner-icon"
               className="max-h-16 md:max-h-20 w-auto my-0 mx-10 object-contain"
-              style={getLogoStyle()} // Apply uniform black background and no filter
               loading="lazy"
             />
           ))}
