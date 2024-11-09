@@ -198,7 +198,7 @@ const Testimonials = () => {
                   <img
                     src={testimonial.image}
                     alt={testimonial.title}
-                    className="h-39 md:h-[100px] md:min-w-[80px] min-w-[80px] w-9 md:w-[100px] rounded-full object-cover"
+                    className="min-h-[36px] h-[36px] md:h-[100px] md:min-w-[80px] w-[36px] md:w-[100px] rounded-full object-cover"
                   />
                   <p className="text-sm text-[#494951]">
                     {testimonial.title.map((line, idx) => (
