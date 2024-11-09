@@ -66,17 +66,17 @@ const Hospitality = () => {
     <div className="relative min-h-[300vh] px-[6%] bg-gray-100">
       <div className="max-w-7xl mx-auto py-12 grid grid-cols-2 gap-8">
         {/* Text Content */}
-        <div className="space-y-12">
+        <div className="pb-10a">
           {sections.map((section, index) => (
             <div
               key={index}
               ref={(el) => (sectionRef.current[index] = el)}
-              className={`py-20 transition-opacity duration-500 ${
+              className={`py-20 mb-[100px] transition-opacity duration-500 ${
                 index === activeIndex ? "opacity-100" : "opacity-20"
               }`} // Highlight active section
               data-section-index={index}
             >
-              <div className="ps-[24px] border-l border-l-[#D1D1D3]">
+              <div className="ps-[24px] border-l-2 border-l-[#D1D1D3]">
                 <h1
                   className={`${
                     index === 0
@@ -109,7 +109,7 @@ const Hospitality = () => {
         </div>
 
         {/* Image with Cross-Fade Effect */}
-        <div className="sticky top-20 w-full h-[80vh] flex items-center">
+        <div className="sticky top-24 w-full h-[80vh] flex items-center">
           {sections.map((section, index) => (
             <img
               key={index}
