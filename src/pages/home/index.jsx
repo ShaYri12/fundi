@@ -7,12 +7,10 @@ import BannerOne from "./BannerOne";
 import Technology from "./Technology";
 import CertifiedCompanies from "./CertifiedCompanies";
 import Testimonials from "./Testimonials";
-import LearnMore from "./LearnMore";
 import MakeItRemarkable from "./MakeItRemarkable";
 import Hero from "./Hero";
 import FAQ from "./FAQ";
 import SimplifiesOperations from "./SimplifiesOperations";
-import DoesItAll from "./DoesItAll";
 import Hospitality from "./Hospitality";
 
 const Home = () => {
