@@ -47,11 +47,18 @@ const Header = () => {
   }, []);
 
   const dropdownRef = useRef(null); // Reference for dropdown to detect outside clicks
+  const dropdownRef2 = useRef(null); // Reference for dropdown to detect outside clicks
 
   // Close dropdown if clicked outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      // Check if the click is outside both dropdown elements
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        dropdownRef2.current &&
+        !dropdownRef2.current.contains(event.target)
+      ) {
         setIsDropdownOpen(false);
       }
     };
@@ -103,7 +110,7 @@ const Header = () => {
           </ul>
 
           <div className="flex items-center gap-4">
-            <div className="relative">
+            <div className="relative lg:block hidden">
               <img
                 src={selectedLanguage.flag}
                 alt="SelectedFlag"
@@ -228,7 +235,7 @@ const Header = () => {
             {isDropdownOpen && (
               <div
                 className="left-0 right-0 bg-white rounded-lg"
-                ref={dropdownRef}
+                ref={dropdownRef2}
               >
                 <ul className="pt-1">
                   <li
