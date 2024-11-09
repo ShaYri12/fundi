@@ -66,7 +66,7 @@ const Hospitality = () => {
     <div className="relative min-h-[300vh] px-[6%] bg-gray-100">
       <div className="max-w-7xl mx-auto py-12 grid grid-cols-2 gap-8">
         {/* Text Content */}
-        <div className="pb-10a">
+        <div className="pb-10">
           {sections.map((section, index) => (
             <div
               key={index}
