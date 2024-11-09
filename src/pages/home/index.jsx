@@ -13,6 +13,7 @@ import Hero from "./Hero";
 import FAQ from "./FAQ";
 import SimplifiesOperations from "./SimplifiesOperations";
 import DoesItAll from "./DoesItAll";
+import Hospitality from "./Hospitality";
 
 const Home = () => {
   return (
@@ -24,7 +25,8 @@ const Home = () => {
         <Brands />
         <WhatFundi />
       </div>
-      <DoesItAll />
+      {/* <DoesItAll /> */}
+      <Hospitality />
 
       <BannerOne />
       <Technology />
