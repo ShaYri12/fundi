@@ -5,8 +5,8 @@ import { RiSecurePaymentLine } from "react-icons/ri";
 
 const Technology = () => {
   return (
-    <section className="px-4 pb-[60px] md:pb-20">
-      <div className="max-w-[1440px] w-full mx-auto">
+    <section className="lg:px-[80px] px-6 pb-[60px] md:pb-20">
+      <div className="container w-full mx-auto">
         <div className="max-w-[520px] w-full mb-[60px]">
           <h3 className="text-night-black font-axiforma-r text-[32px] md:text-[48px] leading-[1.25] mb-4">
             Flexible technology for serious fundraising

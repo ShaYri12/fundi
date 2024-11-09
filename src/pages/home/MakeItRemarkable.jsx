@@ -4,8 +4,8 @@ import makeItRemarkable from "../../assets/remarkable.png";
 const MakeItRemarkable = () => {
   return (
     <div className="bg-[#F8F5F2]">
-      <div className="bg-[#E6F5F0] flex items-center md:rounded-t-[40px] lg:rounded-t-[80px] py-[6rem]">
-        <div className="container mx-auto px-4 lg:px-8">
+      <div className="bg-[#E6F5F0] flex items-center md:rounded-t-[40px] lg:rounded-t-[80px] py-[6rem] px-6 lg:px-8">
+        <div className="container mx-auto">
           <div className="max-w-[1062px] mx-auto flex flex-col md:flex-row items-center md:gap-[4rem] lg:gap-[7rem]">
             <div className="w-full md:w-[50%] lg:w-1/2 sm:flex hidden">
               <div className="relative w-full overflow-hidden">
