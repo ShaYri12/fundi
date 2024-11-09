@@ -71,20 +71,20 @@ const Header = () => {
 
         <ul className="hidden lg:flex items-center flex-1">
           <li>
-            <Link
-              to="#"
+            <a
+              href="#features"
               className="inter-f text-[15px] text-night-black block py-4 lg:py-2.5 lg:pl-3 px-4 lg:px-3 underline-offset-2 hover:underline transition-all duration-300"
             >
               Features
-            </Link>
+            </a>
           </li>
           <li>
-            <Link
-              to="#"
+            <a
+              href="#"
               className="inter-f text-[15px] text-night-black block py-4 lg:py-2.5 lg:pl-3 px-4 lg:px-3 underline-offset-2 hover:underline transition-all duration-300"
             >
               Pricing
-            </Link>
+            </a>
           </li>
         </ul>
 
@@ -100,9 +100,15 @@ const Header = () => {
           >
             Login
           </Link>
-          <button className="bg-[#ff5a65] border border-[#ff5a65] text-white rounded-[80px] text-xs md:text-[15px] font-medium cursor-pointer py-2 md:py-[.625rem] px-3 md:px-[1.5rem] transition-colors duration-300 inter-f hover:bg-[#db4550]">
-            Book a demo
-          </button>
+          <a
+            href="https://calendly.com/fundi-au/fundi-demo-call"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <button className="bg-[#ff5a65] border border-[#ff5a65] text-white rounded-[80px] text-xs md:text-[15px] font-medium cursor-pointer py-2 md:py-[.625rem] px-3 md:px-[1.5rem] transition-colors duration-300 inter-f hover:bg-[#db4550]">
+              Book a demo
+            </button>
+          </a>
 
           <button
             className={`flex lg:hidden ${isDrawerOpen ? "invisible" : ""}`}

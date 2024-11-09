@@ -20,7 +20,7 @@ const WhatFundi = () => {
   ];
 
   return (
-    <section className="px-4 pt-20">
+    <section className="px-4 pt-20" id="features">
       <div className="max-w-[1440px] w-full mx-auto flex flex-col gap-[30px] md:gap-[46px]">
         <div>
           <h2 className="text-[22px] md:text-[32px] leading-[1.4] text-[#1c1d24] font-axiforma font-normal">
