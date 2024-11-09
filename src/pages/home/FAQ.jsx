@@ -9,31 +9,31 @@ const faqData = [
     id: 1,
     question: "How much does it cost to use Fundi?",
     answer:
-      "Contact our sales team for detailed pricing information tailored to your organization's needs.",
+      "Fundi is completely free for all Australian churches, schools, and clubs. There are no contracts, hosting, or dashboard fees, and you receive 100% of all supporter payments. If you'd like to access more advanced features like Vetti, Silenti and high-level analytics reports, you can choose a fundi tier account.",
   },
   {
     id: 2,
     question: "How does Fundi help us increase donations?",
     answer:
-      "Fundi offers multiple donation options, including round-up spare change, weekly subscriptions, and or time donations. Additionally, fundi have a seamless silent auction function and live volunteer vetting service. With personalised dashboards, gamified rankings, and seamless social media integration, Fundi helps engage your supporters and boost recurring donations.",
+      "Fundi offers multiple donation options, including round-up spare change, weekly subscriptions, and one-time donations. Additionally, fundi have a seamless silent auction function and live volunteer vetting service. With personalised dashboards, gamified rankings, and seamless social media integration, Fundi helps engage your supporters and boost recurring donations.",
   },
   {
     id: 3,
     question: "How do we manage our fundraising campaigns and data?",
     answer:
-      "Our platform provides comprehensive tools for campaign management and data analytics.",
+      "You’ll have access to a personalised dashboard where you can manage donations, track progress in real-time. Fundi’s CRM functionality also allows you to access insights and analytics to help you make informed decisions.",
   },
   {
     id: 4,
     question: "Is the platform secure for handling donations?",
     answer:
-      "Yes, we implement industry-standard security protocols to protect all transactions.",
+      "Absolutely. Fundi uses Stripe for secure, PCI-compliant payment processing and integrates with Basiq technology to ensure safe and efficient transactions. Supporters can donate with confidence, knowing their data is protected.",
   },
   {
     id: 5,
     question: "What kind of support do we receive from Fundi?",
     answer:
-      "We provide 24/7 customer support, training resources, and dedicated account managers.",
+      "Fundi provides a unique QR code, links and a partner support pack to make sharing your fundraising efforts easy. Additionally, automated tax receipting, weekly summaries, and access to tools like Silenti for silent auctions and Vetti™ for live volunteer vetting are all included to simplify your fundraising journey.",
   },
 ];
 

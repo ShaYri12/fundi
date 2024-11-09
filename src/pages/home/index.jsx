@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Brands from "./Brands";
@@ -14,7 +14,8 @@ import SimplifiesOperations from "./SimplifiesOperations";
 import Hospitality from "./Hospitality";
 
 const Home = () => {
-  const colors = ["#EFEFFF", "#E6F5F0"]; // Color options
+  const colors = useMemo(() => ["#EFEFFF", "#E6F5F0"], []); // This will only be initialized once
+
   const [bgColor, setBgColor] = useState(colors[0]); // Initial background color
 
   useEffect(() => {
@@ -26,7 +27,7 @@ const Home = () => {
 
     // Cleanup the interval when the component unmounts to avoid memory leaks
     return () => clearInterval(interval);
-  }, []);
+  }, [colors]);
 
   return (
     <div>

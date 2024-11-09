@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Marquee from "react-marquee-slider";
 import Logo1 from "../../assets/logos/acu.png";
@@ -65,28 +65,6 @@ const Brands = () => {
     Logo29,
   ];
 
-  const [marqueeSpeed, setMarqueeSpeed] = useState(25);
-
-  useEffect(() => {
-    const updateSpeed = () => {
-      const newSpeed = window.innerWidth < 768 ? 5 : 20;
-      setMarqueeSpeed(newSpeed);
-    };
-    updateSpeed();
-    window.addEventListener("resize", updateSpeed);
-
-    return () => {
-      window.removeEventListener("resize", updateSpeed);
-    };
-  }, []);
-
-  const getLogoStyle = () => {
-    return {
-      filter: "grayscale(100%) brightness(0) contrast(100%)", // Convert the logo to a blackish color
-      backgroundColor: "transparent", // Ensure the background is transparent
-      mixBlendMode: "normal", // Ensure logos blend normally
-    };
-  };
   return (
     <section className="pt-[60px] overflow-hidden">
       <div className="max-w-[1440px] text-center w-full mx-auto relative z-10 mb-6 sm:mb-[60px] px-4 text-[#494951] leading-[1.5] text-sm inter-f">
