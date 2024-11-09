@@ -17,7 +17,7 @@ const Hospitality = () => {
     },
     {
       description:
-        "Empower your supporters with multiple ways to give, including round-ups, weekly subscriptions, or one-time donations. Plus, they can now use round-up donations to cover school fees, offering even more value to families.",
+        "Your own supporter-branded and analytic dashboard in minutes! Track campaign progress, monitor engagement, and gain insights—all from an intuitive interface designed to elevate your fundraising.",
       image: "/1.png",
     },
     {
@@ -68,7 +68,7 @@ const Hospitality = () => {
   };
 
   return (
-    <div className="relative md:min-h-[300vh] px-[6%] bg-gray-100">
+    <div className="relative lg:min-h-[300vh] px-[6%] bg-gray-100">
       <div className="max-w-7xl mx-auto py-12 hidden lg:grid grid-cols-2 gap-8">
         {/* Text Content */}
         <div className="pb-10">
