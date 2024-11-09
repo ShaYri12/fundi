@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import Marquee from "react-marquee-slider";
 import Logo1 from "../../assets/logos/acu.png";
 import Logo2 from "../../assets/logos/aldenaire-partners.png";
 import Logo3 from "../../assets/logos/Austi-Church-Logo.png";
@@ -32,7 +32,7 @@ import Logo28 from "../../assets/logos/wardiene-university.png";
 import Logo29 from "../../assets/logos/whitehill.png";
 
 const Brands = () => {
-  const ref = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
   const icons = [
     Logo1,
     Logo2,
@@ -64,6 +64,7 @@ const Brands = () => {
     Logo28,
     Logo29,
   ];
+
   const [marqueeSpeed, setMarqueeSpeed] = useState(25);
 
   useEffect(() => {
@@ -79,6 +80,13 @@ const Brands = () => {
     };
   }, []);
 
+  const getLogoStyle = () => {
+    return {
+      filter: "grayscale(100%) brightness(0) contrast(100%)", // Convert the logo to a blackish color
+      backgroundColor: "transparent", // Ensure the background is transparent
+      mixBlendMode: "normal", // Ensure logos blend normally
+    };
+  };
   return (
     <section className="pt-[60px] overflow-hidden">
       <div className="max-w-[1440px] text-center w-full mx-auto relative z-10 mb-6 sm:mb-[60px] px-4 text-[#494951] leading-[1.5] text-sm inter-f">
@@ -89,25 +97,31 @@ const Brands = () => {
         </Link>
       </div>
 
-      <motion.div ref={ref} className="banner" transition={{ duration: 3.5 }}>
-        <div
-          className="slider-track"
-          style={{
-            display: "flex",
-            animation: `scroll ${marqueeSpeed}s linear infinite`,
-          }}
+      <div
+        className="w-full"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {/* Marquee Slider */}
+        <Marquee
+          velocity={isHovered ? 0 : 8} // Stop the marquee when hovered
+          minScale={0.7}
+          resetAfterTries={200}
+          direction="rtl"
         >
+          {/* Mapping over the icons */}
           {icons.concat(icons).map((icon, index) => (
             <img
               key={index}
               src={icon}
               alt="banner-icon"
               className="max-h-16 md:max-h-20 w-auto my-0 mx-10 object-contain"
+              style={getLogoStyle()} // Apply uniform black background and no filter
               loading="lazy"
             />
           ))}
-        </div>
-      </motion.div>
+        </Marquee>
+      </div>
     </section>
   );
 };

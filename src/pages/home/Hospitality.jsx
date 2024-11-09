@@ -1,16 +1,22 @@
 import { useRef, useState, useEffect } from "react";
+import { IoMdCheckmark } from "react-icons/io";
 
 const Hospitality = () => {
   const sections = [
     {
       heading: "Empower your journey, amplify your mission.",
-      description:
-        "Green Tick - No contracts, full flexibility. Green Tick - Tick Zero fees for hosting, websites, or dashboards. Green Tick - Tick 100% of donations go directly to your organisation. Green Tick - Tick Supporters cover all processing fees, ensuring no cost to you. Green Tick - Tick Full transparency with real-time reporting.",
+      description: [
+        " - No contracts, full flexibility.",
+        " - Tick Zero fees for hosting, websites, or dashboards.",
+        " - Tick 100% of donations go directly to your organisation.",
+        " - Tick Supporters cover all processing fees, ensuring no cost to you.",
+        " - Tick Full transparency with real-time reporting.",
+      ],
       image: "/all.png",
     },
     {
       description:
-        "Your own supporter-branded and analytic dashboard in minutes! Track campaign progress, monitor engagement, and gain insights—all from an intuitive interface designed to elevate your fundraising.",
+        "Empower your supporters with multiple ways to give, including round-ups, weekly subscriptions, or one-time donations. Plus, they can now use round-up donations to cover school fees, offering even more value to families.",
       image: "/1.png",
     },
     {
@@ -70,14 +76,32 @@ const Hospitality = () => {
               }`} // Highlight active section
               data-section-index={index}
             >
-              <div>
-                <div>
-                  <h1 className="text-4xl font-bold text-gray-800">
-                    {section?.heading}
-                  </h1>
-                  <p className="mt-4 text-lg text-gray-600">
-                    {section.description}
-                  </p>
+              <div className="ps-[24px] border-l border-l-[#D1D1D3]">
+                <h1
+                  className={`${
+                    index === 0
+                      ? "text-[40px] leading-[125%]"
+                      : "text-[32px] leading-[1.4]"
+                  } font-[400] text-[#1c1d24] font-axiformaa mb-[24px]`}
+                >
+                  {section?.heading}
+                </h1>
+
+                <div className="text-base text-[#494951]">
+                  {/* Display green checkmark before the description for the first section */}
+                  {index === 0 ? (
+                    <div>
+                      {section.description.map((desc, i) => (
+                        <div key={i} className="flex items-center mb-[8px]">
+                          <IoMdCheckmark className="text-green-500 text-[18px] mr-2" />{" "}
+                          {/* Green checkmark */}
+                          <p>{desc}</p>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <p>{section.description}</p> // Display description as is for other sections
+                  )}
                 </div>
               </div>
             </div>
