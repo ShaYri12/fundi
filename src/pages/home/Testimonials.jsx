@@ -3,6 +3,22 @@ import Marquee from "react-marquee-slider";
 import { v4 as uuidv4 } from "uuid";
 import Image1 from "../../assets/TESTIMONIALS/1.png";
 import Image2 from "../../assets/TESTIMONIALS/2.jpeg";
+import Image3 from "../../assets/TESTIMONIALS/3.jpg";
+import Image4 from "../../assets/TESTIMONIALS/4.png";
+import Image5 from "../../assets/TESTIMONIALS/5.png";
+import Image6 from "../../assets/TESTIMONIALS/6.png";
+import Image7 from "../../assets/TESTIMONIALS/7.png";
+import Image8 from "../../assets/TESTIMONIALS/8.webp";
+import Image9 from "../../assets/TESTIMONIALS/9.png";
+import Image10 from "../../assets/TESTIMONIALS/10.png";
+import Image11 from "../../assets/TESTIMONIALS/11.jpeg";
+import Image12 from "../../assets/TESTIMONIALS/12.jpeg";
+import Image13 from "../../assets/TESTIMONIALS/13.png";
+import Image14 from "../../assets/TESTIMONIALS/14.jpeg";
+import Image15 from "../../assets/TESTIMONIALS/15.jpeg";
+import Image16 from "../../assets/TESTIMONIALS/16.png";
+import Image17 from "../../assets/TESTIMONIALS/17.jpeg";
+import Image18 from "../../assets/TESTIMONIALS/18.png";
 
 const Testimonials = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -27,17 +43,17 @@ const Testimonials = () => {
       description: "The best platform to manage our operations seamlessly.",
     },
     {
-      image: Image1,
+      image: Image3,
       title: ["Eric Carter", "Pastor", "Grace Community Church, Melbourne"],
       description: "Thanks to Fundi, we've engaged more than ever.",
     },
     {
-      image: Image2,
+      image: Image4,
       title: ["James Lee", "Executive Director", "Unity Church, Perth"],
       description: "We have just started with fundi, so far so good.",
     },
     {
-      image: Image1,
+      image: Image5,
       title: [
         "Jessica Brown",
         "Fundraising Coordinator",
@@ -47,19 +63,19 @@ const Testimonials = () => {
         "We love how Fundi allows our supporters to give in ways that fit their lifestyles, boosting our fundraising efforts.",
     },
     {
-      image: Image2,
+      image: Image6,
       title: ["Tom Nguyen", "PTA President", "Oakwood Elementary, Canberra"],
       description:
         "The real-time tracking feature has been invaluable for our school, helping us monitor our fundraising goals and keep everyone engaged.",
     },
     {
-      image: Image1,
+      image: Image7,
       title: ["Rachel Green", "Youth Minister", "New Hope Church, Hobart"],
       description:
         "The platform mates fundraising so seamless. It's a game-changer.",
     },
     {
-      image: Image2,
+      image: Image8,
       title: [
         "Michael Adams",
         "Head of Fundraising",
@@ -69,24 +85,24 @@ const Testimonials = () => {
         "We've replaced traditional fundraisers with Fundi, and the results speak for themselves.",
     },
     {
-      image: Image1,
+      image: Image9,
       title: ["Laura White", "Principal", "Greenfield Academy, Newcastle"],
       description: "We're happy with Fundi.",
     },
     {
-      image: Image2,
+      image: Image10,
       title: ["Paul Wilson", "Senior Pastor", "Faith Baptist Church, Brisbane"],
       description:
         "Fundi has allowed us to engage our congregation in new ways, we will see how the results progress.",
     },
     {
-      image: Image1,
+      image: Image11,
       title: ["Karen Smith", "Fundraising Chair", "Heritage Club, Sydney"],
       description:
         "We just tested the live silent auction, very impressed. Well done fundi team!",
     },
     {
-      image: Image2,
+      image: Image12,
       title: [
         "Emily Roberts",
         "Development Director",
@@ -96,7 +112,7 @@ const Testimonials = () => {
         "We've seen a remarkable increase in recurring donations since implementing Fundi. It's transformed our fundraising model.",
     },
     {
-      image: Image1,
+      image: Image13,
       title: [
         "Mark Thompson",
         "Community Outreach Director",
@@ -106,7 +122,7 @@ const Testimonials = () => {
         "Fundi's innovative features have empowered our church to reach more people and raise more.",
     },
     {
-      image: Image2,
+      image: Image14,
       title: [
         "Jessica Lee",
         "Events Coordinator",
@@ -116,7 +132,7 @@ const Testimonials = () => {
         "The platform's ability to connect supporters and streamline donations has made our events more successful than ever.",
     },
     {
-      image: Image1,
+      image: Image15,
       title: [
         "Anna Miller",
         "Executive Director",
@@ -126,13 +142,13 @@ const Testimonials = () => {
         "With Fundi, we can now focus on building relationships with our supporters rather than worrying about fundraising logistics.",
     },
     {
-      image: Image2,
+      image: Image16,
       title: ["Richard Davis", "Pastor", "Living Waters Church, Hobart"],
       description:
         "Our church's giving culture has flourished since adopting Fundi.",
     },
     {
-      image: Image1,
+      image: Image17,
       title: [
         "Sarah Clark",
         "Fundraising Manager",
@@ -141,7 +157,7 @@ const Testimonials = () => {
       description: "We just started, very easy to use.",
     },
     {
-      image: Image2,
+      image: Image18,
       title: [
         "Kevin White",
         "Club Treasurer",
@@ -182,7 +198,7 @@ const Testimonials = () => {
                   <img
                     src={testimonial.image}
                     alt={testimonial.title}
-                    className="h-39 md:h-[100px] w-9 md:w-[100px] rounded-full object-cover"
+                    className="h-39 md:h-[100px] md:min-w-[80px] min-w-[80px] w-9 md:w-[100px] rounded-full object-cover"
                   />
                   <p className="text-sm text-[#494951]">
                     {testimonial.title.map((line, idx) => (
@@ -217,7 +233,7 @@ const Testimonials = () => {
                 <img
                   src={testimonial.image}
                   alt={testimonial.title}
-                  className="h-39 md:h-[80px] w-9 md:w-[80px] rounded-full object-cover"
+                  className="h-39 md:h-[80px] md:min-w-[80px] min-w-[80px] w-9 md:w-[80px] rounded-full object-cover"
                 />
                 <div className="flex flex-col justify-between gap-4">
                   <h4 className="font-[500] text-[#1C1D24] font-axiformaa">
@@ -250,7 +266,7 @@ const Testimonials = () => {
                 <img
                   src={testimonial.image}
                   alt={testimonial.title}
-                  className="h-39 md:h-[80px] w-9 md:w-[80px] rounded-full object-cover"
+                  className="h-39 md:h-[80px] md:min-w-[80px] min-w-[80px] w-9 md:w-[80px] rounded-full object-cover"
                 />
                 <div className="flex flex-col justify-between gap-4">
                   <h4 className="font-[500] text-[#1C1D24] font-axiformaa">
