@@ -68,8 +68,8 @@ const Hospitality = () => {
   };
 
   return (
-    <div className="relative min-h-[300vh] px-[6%] bg-gray-100">
-      <div className="max-w-7xl mx-auto py-12 grid grid-cols-2 gap-8">
+    <div className="relative md:min-h-[300vh] px-[6%] bg-gray-100">
+      <div className="max-w-7xl mx-auto py-12 hidden lg:grid grid-cols-2 gap-8">
         {/* Text Content */}
         <div className="pb-10">
           {sections.map((section, index) => (
@@ -151,6 +151,43 @@ const Hospitality = () => {
               }}
             />
           ))}
+        </div>
+      </div>
+
+      {/* for small & medium devices only */}
+      <div className=" mx-auto py-12 space-y-9 lg:hidden ">
+        <div className="w-full h-auto flex items-center">
+          <img
+            src={sections[0].image}
+            alt="Hospitality"
+            className={` w-full h-auto object-cover rounded-lg`}
+          />
+        </div>
+        {/* Text Content */}
+        <div className="">
+          <div>
+            <div className="ps-[9px] space-y-5">
+              <h1
+                className={`text-[25px] leading-[125%] font-[400] text-[#1c1d24] font-axiformaa `}
+              >
+                {sections[0]?.heading}
+              </h1>
+
+              <div className="text-base text-[#494951]">
+                {/* Display green checkmark before the description for the first section */}
+
+                <div>
+                  {sections[0].description.map((desc, i) => (
+                    <div key={i} className="flex items-center gap-4 ">
+                      <IoMdCheckmark className="text-green-500 text-[15px] mr-2" />{" "}
+                      {/* Green checkmark */}
+                      <p>{desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
