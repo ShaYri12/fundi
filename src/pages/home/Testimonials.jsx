@@ -10,43 +10,75 @@ const Testimonials = () => {
   const testimonials = [
     {
       image: Image1,
-      title: "John Doe",
+      title: [
+        "Sarah Thompson, ",
+        "Club President, ",
+        "Riverside Sports Club, Brisbane.",
+      ],
       description: "Fundi has been transformative for our organization.",
     },
     {
       image: Image2,
-      title: "Jane Smith",
+      title: [
+        "David Johnson, ",
+        "Principal, ",
+        "St Augustine High School, Sydney.",
+      ],
       description: "The best platform to manage our operations seamlessly.",
     },
     {
       image: Image1,
-      title: "John Doe",
+      title: [
+        "Sarah Thompson, ",
+        "Club President, ",
+        "Riverside Sports Club, Brisbane.",
+      ],
       description: "Fundi has been transformative for our organization.",
     },
     {
       image: Image2,
-      title: "Jane Smith",
+      title: [
+        "David Johnson, ",
+        "Principal, ",
+        "St Augustine High School, Sydney.",
+      ],
+      description: "The best platform to manage our operations seamlessly.",
+    },
+    {
+      image: Image2,
+      title: [
+        "David Johnson, ",
+        "Principal, ",
+        "St Augustine High School, Sydney.",
+      ],
       description: "The best platform to manage our operations seamlessly.",
     },
     {
       image: Image1,
-      title: "John Doe",
+      title: [
+        "Sarah Thompson, ",
+        "Club President, ",
+        "Riverside Sports Club, Brisbane.",
+      ],
       description: "Fundi has been transformative for our organization.",
     },
     {
       image: Image2,
-      title: "Jane Smith",
+      title: [
+        "David Johnson, ",
+        "Principal, ",
+        "St Augustine High School, Sydney.",
+      ],
       description: "The best platform to manage our operations seamlessly.",
     },
     {
       image: Image1,
-      title: "John Doe",
+      title: [
+        "Sarah Thompson, ",
+        "Club President, ",
+        "Riverside Sports Club, Brisbane.",
+      ],
       description: "Fundi has been transformative for our organization.",
-    },
-    {
-      image: Image2,
-      title: "Jane Smith",
-      description: "The best platform to manage our operations seamlessly.",
     },
   ];
 
@@ -83,7 +115,11 @@ const Testimonials = () => {
                     alt={testimonial.title}
                     className="h-39 md:h-[100px] w-9 md:w-[100px] rounded-full object-cover"
                   />
-                  <p className="text-sm text-[#494951]">{testimonial.title}</p>
+                  <p className="text-sm text-[#494951]">
+                    {testimonial.title.map((line, idx) => (
+                      <p key={idx}>{line}</p> // Render each title on a new line
+                    ))}
+                  </p>
                 </div>
               </div>
             </div>
@@ -118,7 +154,11 @@ const Testimonials = () => {
                   <h4 className="font-[500] text-[#1C1D24] font-axiformaa">
                     "{testimonial.description}"
                   </h4>
-                  <p className="text-sm text-[#494951]">{testimonial.title}</p>
+                  <p className="text-sm text-[#494951]">
+                    {testimonial.title.map((line, idx) => (
+                      <p key={idx}>{line}</p> // Render each title on a new line
+                    ))}
+                  </p>
                 </div>
               </div>
             </div>
@@ -147,7 +187,11 @@ const Testimonials = () => {
                   <h4 className="font-[500] text-[#1C1D24] font-axiformaa">
                     "{testimonial.description}"
                   </h4>
-                  <p className="text-sm text-[#494951]">{testimonial.title}</p>
+                  <p className="text-sm text-[#494951]">
+                    {testimonial.title.map((line, idx) => (
+                      <p key={idx}>{line}</p>
+                    ))}
+                  </p>
                 </div>
               </div>
             </div>
