@@ -183,7 +183,7 @@ const Testimonials = () => {
       </div>
 
       {/* Conditionally render Swiper or latest testimonials based on screen width */}
-      <div className="block md:hidden md:px-4">
+      <div className="block md:hidden px-4">
         <div className="flex flex-col gap-6 max-w-[600px] mx-auto">
           {testimonials.slice(0, 3).map((testimonial, index) => (
             <div
