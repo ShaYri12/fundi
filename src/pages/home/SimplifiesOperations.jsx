@@ -13,7 +13,7 @@ export default function SimplifiesOperations() {
       title: "Schools",
       heading: "Fundi simplifies operations for ",
       description:
-        "Streamline educational facility management from administration to student services, allowing more focus on academic excellence.",
+        "Gone are the days of chocolate fundraisers, colour runs, and school discos. Welcome to a new era of fundraising that harnesses technology to create seamless and impactful giving experiences. Our platform is the first of its kind, to offer flexible fundraising and enabling school supporters to round up their spare change for school fees, making contributions effortless and accessible.",
       images: [schools],
       icon: FaSchool,
     },
@@ -21,7 +21,7 @@ export default function SimplifiesOperations() {
       title: "Clubs",
       heading: "Fundi simplifies operations for ",
       description:
-        "Manage member experiences, events, and facilities seamlessly while maximizing engagement and satisfaction.",
+        "Transform your club's fundraising efforts with our platform, simplify operations and automate key processes, saving time and reducing costs. With features like real-time tracking, integrated payment processing, and seamless social media sharing, your club can focus on what truly matters: engaging with members and maximising fundraising potential.",
       images: [clubs],
       icon: FaUsers,
     },
@@ -29,7 +29,7 @@ export default function SimplifiesOperations() {
       title: "Churches",
       heading: "Fundi simplifies operations for ",
       description:
-        "Organize community events, manage facilities, and streamline administrative tasks to focus more on your congregation.",
+        "Our platform revolutionises church fundraising by providing innovative, tech-driven solutions that engage congregations like never before. Say goodbye to traditional methods and embrace flexible giving options, including round-up donations that make it easy for members to contribute. With features designed to streamline operations and enhance community involvement, your church can focus on its mission.",
       images: [churches],
       icon: FaChurch,
     },
