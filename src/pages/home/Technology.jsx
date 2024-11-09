@@ -22,8 +22,8 @@ const Technology = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
           <div className="flex flex-col gap-4">
-            <RxDashboard className="text-3xl text-night-black" />
-            <p className="text-base font-axiforma-r text-night-black">
+            <RxDashboard className="text-[40px] text-night-black" />
+            <p className="text-base font-axiforma-r font-[600] text-night-black">
               Enhanced dashboard and reporting
             </p>
 
@@ -35,8 +35,8 @@ const Technology = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            <RiSecurePaymentLine className="text-3xl text-night-black" />
-            <p className="text-base font-axiforma-r text-night-black">
+            <RiSecurePaymentLine className="text-[40px] text-night-black" />
+            <p className="text-base font-axiforma-r font-[600] text-night-black">
               Secure payment processing
             </p>
 
@@ -48,8 +48,8 @@ const Technology = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            <RxDashboard className="text-3xl text-night-black" />
-            <p className="text-base font-axiforma-r text-night-black">
+            <RxDashboard className="text-[40px] text-night-black" />
+            <p className="text-base font-axiforma-r font-[600] text-night-black">
               Comprehensive CRM
             </p>
 
@@ -61,8 +61,8 @@ const Technology = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            <FaRegClock className="text-3xl text-night-black" />
-            <p className="text-base font-axiforma-r text-night-black">
+            <FaRegClock className="text-[40px] text-night-black" />
+            <p className="text-base font-axiforma-r font-[600] text-night-black">
               Real-time tracking
             </p>
 
@@ -74,8 +74,8 @@ const Technology = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            <RxDashboard className="text-3xl text-night-black" />
-            <p className="text-base font-axiforma-r text-night-black">
+            <RxDashboard className="text-[40px] text-night-black" />
+            <p className="text-base font-axiforma-r font-[600] text-night-black">
               Supporter Social Content & Sharing
             </p>
 
@@ -87,8 +87,8 @@ const Technology = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            <RxDashboard className="text-3xl text-night-black" />
-            <p className="text-base font-axiforma-r text-night-black">
+            <RxDashboard className="text-[40px] text-night-black" />
+            <p className="text-base font-axiforma-r font-[600] text-night-black">
               No integration fees
             </p>
 

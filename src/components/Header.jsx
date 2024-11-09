@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import FundiLogo from "../assets/fundi8-sm-kit.jpg";
+import React, { useEffect, useState } from "react";
+import FundiLogo from "../assets/fund-logo.png";
 import AustFlag from "../assets/aust-flag.svg";
 import fr from "../assets/fr.svg";
 import es from "../assets/es.svg";
@@ -11,6 +11,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 const Header = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   // State for selected language and its flag
   const [selectedLanguage, setSelectedLanguage] = useState({
@@ -32,11 +33,40 @@ const Header = () => {
     setIsDropdownOpen(false);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="bg-white fixed w-full left-0 top-0 transition-all duration-300 px-4 z-50">
+    <header
+      className={`fixed w-full left-0 top-0 transition-all duration-300 px-4 z-50 ${
+        isDropdownOpen
+          ? "bg-white backdrop-blur-none" // Fully white without blur when dropdown is open
+          : isScrolled
+          ? "bg-white/50 backdrop-blur-lg" // Semi-transparent with blur when scrolled
+          : "bg-white" // Default white background
+      }`}
+    >
       <div className="flex items-center justify-between gap-2 sm:gap-10 max-w-[1440px] w-full mx-auto min-h-[72.5px] md:py-[20px] lg:py-3.5 z-50">
         <Link to="/" className="relative z-[60]">
-          <img src={FundiLogo} alt="FundiLogo" className="h-10" />
+          <img
+            src={FundiLogo}
+            alt="FundiLogo"
+            className="h-10"
+            style={{
+              mixBlendMode: "screen",
+              opacity: 0.9,
+            }}
+          />
         </Link>
 
         <ul className="hidden lg:flex items-center flex-1">
@@ -75,7 +105,7 @@ const Header = () => {
           </button>
 
           <button
-            className={`flex lg:hidden ${isDrawerOpen ? "hidden" : ""}`}
+            className={`flex lg:hidden ${isDrawerOpen ? "invisible" : ""}`}
             onClick={toggleDrawer}
           >
             <HiBars2 className="text-3xl cursor-pointer text-night-black" />
@@ -95,8 +125,10 @@ const Header = () => {
 
       {/* Drawer Design */}
       <div
-        className={`fixed top-0 left-0 w-full h-full bg-white z-40 transition-all duration-300 transform ${
-          isDrawerOpen ? "translate-y-0" : "-translate-y-full"
+        className={`fixed top-0 left-0 w-full h-[100vh] bg-white z-40 transition-all duration-300 transform ${
+          isDrawerOpen
+            ? "translate-y-0 opacity-1"
+            : "-translate-y-full opacity-0"
         }`}
       >
         {/* Drawer Content */}
