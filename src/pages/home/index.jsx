@@ -33,7 +33,6 @@ const Home = () => {
       <SimplifiesOperations />
       <CertifiedCompanies />
       <Testimonials />
-      <LearnMore />
       <MakeItRemarkable />
       <FAQ />
       <Footer />
