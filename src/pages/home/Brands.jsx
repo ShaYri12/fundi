@@ -65,6 +65,14 @@ const Brands = () => {
     Logo29,
   ];
 
+  const getLogoStyle = () => {
+    return {
+      filter: "grayscale(100%) brightness(0) contrast(100%)", // Convert the logo to a blackish color
+      backgroundColor: "transparent", // Ensure the background is transparent
+      mixBlendMode: "normal", // Ensure logos blend normally
+    };
+  };
+
   return (
     <section className="pt-[60px] overflow-hidden">
       <div className="max-w-[1440px] text-center w-full mx-auto relative z-10 mb-6 sm:mb-[60px] px-4 text-[#494951] leading-[1.5] text-sm inter-f">
@@ -95,6 +103,7 @@ const Brands = () => {
               alt="banner-icon"
               className="max-h-16 md:max-h-20 w-auto my-0 mx-10 object-contain"
               loading="lazy"
+              style={getLogoStyle()}
             />
           ))}
         </Marquee>
