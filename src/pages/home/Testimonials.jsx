@@ -11,8 +11,8 @@ const Testimonials = () => {
     {
       image: Image1,
       title: [
-        "Sarah Thompson, ",
-        "Club President, ",
+        "Sarah Thompson,",
+        "Club President,",
         "Riverside Sports Club, Brisbane.",
       ],
       description: "Fundi has been transformative for our organization.",
@@ -20,65 +20,134 @@ const Testimonials = () => {
     {
       image: Image2,
       title: [
-        "David Johnson, ",
-        "Principal, ",
+        "David Johnson,",
+        "Principal,",
         "St Augustine High School, Sydney.",
       ],
       description: "The best platform to manage our operations seamlessly.",
     },
     {
       image: Image1,
-      title: [
-        "Sarah Thompson, ",
-        "Club President, ",
-        "Riverside Sports Club, Brisbane.",
-      ],
-      description: "Fundi has been transformative for our organization.",
+      title: ["Eric Carter", "Pastor", "Grace Community Church, Melbourne"],
+      description: "Thanks to Fundi, we've engaged more than ever.",
     },
     {
       image: Image2,
-      title: [
-        "David Johnson, ",
-        "Principal, ",
-        "St Augustine High School, Sydney.",
-      ],
-      description: "The best platform to manage our operations seamlessly.",
-    },
-    {
-      image: Image2,
-      title: [
-        "David Johnson, ",
-        "Principal, ",
-        "St Augustine High School, Sydney.",
-      ],
-      description: "The best platform to manage our operations seamlessly.",
+      title: ["James Lee", "Executive Director", "Unity Church, Perth"],
+      description: "We have just started with fundi, so far so good.",
     },
     {
       image: Image1,
       title: [
-        "Sarah Thompson, ",
-        "Club President, ",
-        "Riverside Sports Club, Brisbane.",
+        "Jessica Brown",
+        "Fundraising Coordinator",
+        "The Sunshine Club, Adelaide",
       ],
-      description: "Fundi has been transformative for our organization.",
+      description:
+        "We love how Fundi allows our supporters to give in ways that fit their lifestyles, boosting our fundraising efforts.",
+    },
+    {
+      image: Image2,
+      title: ["Tom Nguyen", "PTA President", "Oakwood Elementary, Canberra"],
+      description:
+        "The real-time tracking feature has been invaluable for our school, helping us monitor our fundraising goals and keep everyone engaged.",
+    },
+    {
+      image: Image1,
+      title: ["Rachel Green", "Youth Minister", "New Hope Church, Hobart"],
+      description:
+        "The platform mates fundraising so seamless. It's a game-changer.",
     },
     {
       image: Image2,
       title: [
-        "David Johnson, ",
-        "Principal, ",
-        "St Augustine High School, Sydney.",
+        "Michael Adams",
+        "Head of Fundraising",
+        "Hillview Community Centre, Gold Coast",
       ],
-      description: "The best platform to manage our operations seamlessly.",
+      description:
+        "We've replaced traditional fundraisers with Fundi, and the results speak for themselves.",
+    },
+    {
+      image: Image1,
+      title: ["Laura White", "Principal", "Greenfield Academy, Newcastle"],
+      description: "We're happy with Fundi.",
+    },
+    {
+      image: Image2,
+      title: ["Paul Wilson", "Senior Pastor", "Faith Baptist Church, Brisbane"],
+      description:
+        "Fundi has allowed us to engage our congregation in new ways, we will see how the results progress.",
+    },
+    {
+      image: Image1,
+      title: ["Karen Smith", "Fundraising Chair", "Heritage Club, Sydney"],
+      description:
+        "We just tested the live silent auction, very impressed. Well done fundi team!",
+    },
+    {
+      image: Image2,
+      title: [
+        "Emily Roberts",
+        "Development Director",
+        "Crestview School, Melbourne",
+      ],
+      description:
+        "We've seen a remarkable increase in recurring donations since implementing Fundi. It's transformed our fundraising model.",
     },
     {
       image: Image1,
       title: [
-        "Sarah Thompson, ",
-        "Club President, ",
-        "Riverside Sports Club, Brisbane.",
+        "Mark Thompson",
+        "Community Outreach Director",
+        "St. Andrew's Church, Perth",
       ],
-      description: "Fundi has been transformative for our organization.",
+      description:
+        "Fundi's innovative features have empowered our church to reach more people and raise more.",
+    },
+    {
+      image: Image2,
+      title: [
+        "Jessica Lee",
+        "Events Coordinator",
+        "Harmony Sports Club, Adelaide",
+      ],
+      description:
+        "The platform's ability to connect supporters and streamline donations has made our events more successful than ever.",
+    },
+    {
+      image: Image1,
+      title: [
+        "Anna Miller",
+        "Executive Director",
+        "Bright Futures Academy, Canberra",
+      ],
+      description:
+        "With Fundi, we can now focus on building relationships with our supporters rather than worrying about fundraising logistics.",
+    },
+    {
+      image: Image2,
+      title: ["Richard Davis", "Pastor", "Living Waters Church, Hobart"],
+      description:
+        "Our church's giving culture has flourished since adopting Fundi.",
+    },
+    {
+      image: Image1,
+      title: [
+        "Sarah Clark",
+        "Fundraising Manager",
+        "Evergreen High School, Gold Coast",
+      ],
+      description: "We just started, very easy to use.",
+    },
+    {
+      image: Image2,
+      title: [
+        "Kevin White",
+        "Club Treasurer",
+        "Valley View Community Centre, Newcastle",
+      ],
+      description: "Fundi has taken our fundraising strategy to new heights.",
     },
   ];
 
