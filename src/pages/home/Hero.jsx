@@ -119,7 +119,7 @@ const Hero = () => {
                             transition: "opacity 0.4s ease-in-out",
                           }}
                         >
-                          <p className="tag-bubble text-center sm:max-w-auto max-w-[200px] sm:text-[18px] rounded-full border-2 border-white bg-[#FFFFFFCC] py-1.5 px-4 w-fit relative z-10">
+                          <p className="tag-bubble text-center sm:max-w-full max-w-[200px] sm:text-[18px] rounded-full border-2 border-white bg-[#FFFFFFCC] py-1.5 px-4 w-fit relative z-10">
                             {bubble}
                           </p>
                           <div
