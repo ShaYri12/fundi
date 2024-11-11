@@ -27,13 +27,13 @@ const Technology = () => {
             <div key={index} className="flex flex-col gap-4">
               {feature.Icon ? (
                 <feature.Icon
-                  className={`text-[${feature.iconSize}] text-[#ff5a65]`}
+                  className={`text-[${feature.iconSize}] text-[#ff5a65] w-[${feature.iconSize}] h-[${feature.iconSize}]`}
                 />
               ) : (
                 <img
                   src={feature.imageSrc}
                   alt=""
-                  className={`w-[${feature.imageSize}] h-[${feature.imageSize}]`}
+                  className={`w-[${feature.imageSize}] min-w-[${feature.imageSize}] min-h-[${feature.imageSize}] h-[${feature.imageSize}] object-contain`}
                 />
               )}
               <p className="text-base font-axiforma-r font-[600] text-night-black">
