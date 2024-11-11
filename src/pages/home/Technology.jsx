@@ -42,23 +42,9 @@ const features = [
     title: "No integration fees",
     description:
       "Enjoy the advantage of no integration or dashboard fees, allowing you to implement our platform seamlessly without hidden costs.",
-    imgSrc: currencyCircle, // Provide the image source directly here
+    imgSrc: currencyCircle,
   },
 ];
-
-const FeatureCard = ({ Icon, title, description }) => (
-  <div className="flex flex-col gap-4">
-    {Icon === "image" ? (
-      <img src={imgSrc} alt="" className="w-[40px] h-[40px]" />
-    ) : (
-      <Icon className="text-[40px] text-[#ff5a65]" />
-    )}
-    <p className="text-base font-axiforma-r font-[600] text-night-black">
-      {title}
-    </p>
-    <p className="text-[#494951] text-base inter-f">{description}</p>
-  </div>
-);
 
 const Technology = () => {
   return (
@@ -78,13 +64,24 @@ const Technology = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
-          {features.map(({ Icon, title, description }, index) => (
-            <FeatureCard
-              key={index}
-              Icon={Icon}
-              title={title}
-              description={description}
-            />
+          {features.map((feature, index) => (
+            <div className="flex flex-col gap-4">
+              {feature.Icon === "image" ? (
+                <img
+                  src={feature.imgSrc}
+                  alt=""
+                  className="w-[40px] h-[40px]"
+                />
+              ) : (
+                <Icon className="text-[40px] text-[#ff5a65]" />
+              )}
+              <p className="text-base font-axiforma-r font-[600] text-night-black">
+                {feature.title}
+              </p>
+              <p className="text-[#494951] text-base inter-f">
+                {feature.description}
+              </p>
+            </div>
           ))}
         </div>
       </div>
