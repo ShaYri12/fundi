@@ -14,6 +14,7 @@ const Technology = () => {
           <h3 className="text-night-black font-axiforma-r text-[32px] md:text-[48px] leading-[1.25] mb-4">
             Flexible technology for serious fundraising
           </h3>
+
           <p className="text-[#494951] text-base inter-f">
             Your organisation has unique fundraising needs, and you need a
             platform that supports them. fundi makes it easy to create your own
@@ -23,27 +24,82 @@ const Technology = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
-          {features.map((feature, index) => (
-            <div key={index} className="flex flex-col gap-4">
-              {feature.Icon ? (
-                <feature.Icon
-                  className={`text-[${feature.iconSize}] text-[#ff5a65] w-[${feature.iconSize}] h-[${feature.iconSize}]`}
-                />
-              ) : (
-                <img
-                  src={feature.imageSrc}
-                  alt=""
-                  className={`w-[${feature.imageSize}] min-w-[${feature.imageSize}] min-h-[${feature.imageSize}] h-[${feature.imageSize}] object-contain`}
-                />
-              )}
-              <p className="text-base font-axiforma-r font-[600] text-night-black">
-                {feature.title}
-              </p>
-              <p className="text-[#494951] text-base inter-f">
-                {feature.description}
-              </p>
-            </div>
-          ))}
+          <div className="flex flex-col gap-4">
+            <RxDashboard className="text-[40px] text-[#ff5a65]" />
+            <p className="text-base font-axiforma-r font-[600] text-night-black">
+              Enhanced dashboard and reporting
+            </p>
+
+            <p className="text-[#494951] text-base inter-f">
+              Experience unparalleled insights with our enhanced dashboard,
+              providing comprehensive reporting that empowers you to make
+              data-driven decisions.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <RiSecurePaymentLine className="text-[42px] text-[#ff5a65]" />
+            <p className="text-base font-axiforma-r font-[600] text-night-black">
+              Secure payment processing
+            </p>
+
+            <p className="text-[#494951] text-base inter-f">
+              Rest assured with our secure payment processing system, ensuring
+              that all transactions are protected and compliant with the highest
+              industry standards.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <BsPlusSquare className="text-[38px] text-[#ff5a65]" />
+            <p className="text-base font-axiforma-r font-[600] text-night-black">
+              Comprehensive CRM
+            </p>
+
+            <p className="text-[#494951] text-base inter-f">
+              Leverage our comprehensive CRM to foster deeper relationships with
+              supporters, streamline communication, and enhance your fundraising
+              efforts.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <FaRegClock className="text-[40px] text-[#ff5a65]" />
+            <p className="text-base font-axiforma-r font-[600] text-night-black">
+              Real-time tracking
+            </p>
+
+            <p className="text-[#494951] text-base inter-f">
+              Benefit from real-time tracking of your fundraising activities,
+              enabling you to monitor progress and adapt strategies instantly
+              for maximum impact.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <FiUploadCloud className="text-[40px] text-[#ff5a65]" />
+            <p className="text-base font-axiforma-r font-[600] text-night-black">
+              Supporter Social Content & Sharing
+            </p>
+
+            <p className="text-[#494951] text-base inter-f">
+              Seamlessly integrated social media features allow supporters to
+              easily upload and share their content, fostering community
+              engagement and amplifying your cause.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <img src={currencyCircle} alt="" className="w-[40px] h-[40px]" />
+            <p className="text-base font-axiforma-r font-[600] text-night-black">
+              No integration fees
+            </p>
+
+            <p className="text-[#494951] text-base inter-f">
+              Enjoy the advantage of no integration or dashboard fees, allowing
+              you to implement our platform seamlessly without hidden costs.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -51,48 +107,3 @@ const Technology = () => {
 };
 
 export default Technology;
-
-const features = [
-  {
-    Icon: RxDashboard,
-    title: "Enhanced dashboard and reporting",
-    description:
-      "Experience unparalleled insights with our enhanced dashboard, providing comprehensive reporting that empowers you to make data-driven decisions.",
-    iconSize: "40px",
-  },
-  {
-    Icon: RiSecurePaymentLine,
-    title: "Secure payment processing",
-    description:
-      "Rest assured with our secure payment processing system, ensuring that all transactions are protected and compliant with the highest industry standards.",
-    iconSize: "42px",
-  },
-  {
-    Icon: BsPlusSquare,
-    title: "Comprehensive CRM",
-    description:
-      "Leverage our comprehensive CRM to foster deeper relationships with supporters, streamline communication, and enhance your fundraising efforts.",
-    iconSize: "38px",
-  },
-  {
-    Icon: FaRegClock,
-    title: "Real-time tracking",
-    description:
-      "Benefit from real-time tracking of your fundraising activities, enabling you to monitor progress and adapt strategies instantly for maximum impact.",
-    iconSize: "40px",
-  },
-  {
-    Icon: FiUploadCloud,
-    title: "Supporter Social Content & Sharing",
-    description:
-      "Seamlessly integrated social media features allow supporters to easily upload and share their content, fostering community engagement and amplifying your cause.",
-    iconSize: "40px",
-  },
-  {
-    imageSrc: currencyCircle,
-    title: "No integration fees",
-    description:
-      "Enjoy the advantage of no integration or dashboard fees, allowing you to implement our platform seamlessly without hidden costs.",
-    imageSize: "40px",
-  },
-];
