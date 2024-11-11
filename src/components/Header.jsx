@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import FundiLogo from "../assets/fund-logo.png";
-import AustFlag from "../assets/aust-flag.svg";
+import aus from "../assets/aus.png";
 import fr from "../assets/fr.svg";
 import es from "../assets/es.svg";
 import { Link } from "react-router-dom";
@@ -16,7 +16,7 @@ const Header = () => {
   // State for selected language and its flag
   const [selectedLanguage, setSelectedLanguage] = useState({
     name: "English",
-    flag: AustFlag,
+    flag: aus,
   });
 
   const toggleDrawer = () => {
@@ -127,12 +127,12 @@ const Header = () => {
                   <ul className="pt-1">
                     <li
                       className="py-2 px-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2"
-                      onClick={() => handleLanguageSelect("English", AustFlag)}
+                      onClick={() => handleLanguageSelect("English", aus)}
                     >
                       <img
-                        src={AustFlag}
+                        src={aus}
                         alt="EnglishFlag"
-                        className="w-6 h-6"
+                        className="w-6 h-6 object-contain"
                       />
                       <span>English</span>
                     </li>
@@ -140,14 +140,22 @@ const Header = () => {
                       className="py-2 px-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2"
                       onClick={() => handleLanguageSelect("French", fr)}
                     >
-                      <img src={fr} alt="FrenchFlag" className="w-6 h-6" />
+                      <img
+                        src={fr}
+                        alt="FrenchFlag"
+                        className="w-6 h-6 object-contain"
+                      />
                       <span>French</span>
                     </li>
                     <li
                       className="py-2 px-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2"
                       onClick={() => handleLanguageSelect("Spanish", es)}
                     >
-                      <img src={es} alt="SpanishFlag" className="w-6 h-6" />
+                      <img
+                        src={es}
+                        alt="SpanishFlag"
+                        className="w-6 h-6 object-contain"
+                      />
                       <span>Spanish</span>
                     </li>
                   </ul>
@@ -227,7 +235,7 @@ const Header = () => {
                 <img
                   src={selectedLanguage.flag}
                   alt="SelectedFlag"
-                  className="w-6 h-6"
+                  className="w-6 h-6 object-contain"
                 />
                 <span>{selectedLanguage.name}</span>
               </div>
@@ -242,23 +250,35 @@ const Header = () => {
                 <ul className="pt-1">
                   <li
                     className="py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2"
-                    onClick={() => handleLanguageSelect("English", AustFlag)}
+                    onClick={() => handleLanguageSelect("English", aus)}
                   >
-                    <img src={AustFlag} alt="AustFlag" className="w-6 h-6" />
+                    <img
+                      src={aus}
+                      alt="aus"
+                      className="w-6 h-6 object-contain"
+                    />
                     <span>English</span>
                   </li>
                   <li
                     className="py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2"
                     onClick={() => handleLanguageSelect("French", fr)}
                   >
-                    <img src={fr} alt="FrenchFlag" className="w-6 h-6" />
+                    <img
+                      src={fr}
+                      alt="FrenchFlag"
+                      className="w-6 h-6 object-contain"
+                    />
                     <span>French</span>
                   </li>
                   <li
                     className="py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2"
                     onClick={() => handleLanguageSelect("Spanish", es)}
                   >
-                    <img src={es} alt="SpanishFlag" className="w-6 h-6" />
+                    <img
+                      src={es}
+                      alt="SpanishFlag"
+                      className="w-6 h-6 object-contain"
+                    />
                     <span>Spanish</span>
                   </li>
                 </ul>

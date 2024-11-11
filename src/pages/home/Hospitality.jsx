@@ -34,7 +34,7 @@ const Hospitality = () => {
       image: "/3.png",
     },
     {
-      headgin: "Automated silent auctions",
+      heading: "Automated silent auctions",
       description:
         "Run unlimited silent auctions with automated bidding updates and self-checkout. Our system streamlines the entire process, allowing you to focus on engaging your supporters and maximising contributions.",
       image: "/4.png",
@@ -102,7 +102,7 @@ const Hospitality = () => {
                     <div>
                       {section.description.map((desc, i) => (
                         <div key={i} className="flex items-center mb-[8px]">
-                          <IoMdCheckmark className="text-green-500 text-[18px] mr-2" />{" "}
+                          <IoMdCheckmark className="text-green-500 text-[18px] min-w-[18px] mr-2" />{" "}
                           {/* Green checkmark */}
                           <p>{desc}</p>
                         </div>
@@ -183,7 +183,7 @@ const Hospitality = () => {
                 <div>
                   {sections[0].description.map((desc, i) => (
                     <div key={i} className="flex items-center gap-4 ">
-                      <IoMdCheckmark className="text-green-500 text-[15px] mr-2" />{" "}
+                      <IoMdCheckmark className="text-green-500 text-[15px] min-w-[15px] mr-2" />{" "}
                       {/* Green checkmark */}
                       <p>{desc}</p>
                     </div>
