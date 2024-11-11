@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Clubs from "../../assets/for-clubs.jpeg";
 import Churches from "../../assets/for-churches.jpeg";
 import Schools from "../../assets/for-schools.jpeg";
 
 const WhatFundi = () => {
+  const [small, setSmall] = useState(false);
   const cardData = [
     {
       title: "For Clubs",
@@ -18,6 +19,22 @@ const WhatFundi = () => {
       image: Schools,
     },
   ];
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 381) {
+        setSmall(true); // Slow down on small devices
+      } else {
+        setSmall(false); // Default velocity for larger devices
+      }
+    };
+
+    handleResize(); // Set the initial velocity based on the current window size
+    window.addEventListener("resize", handleResize); // Add event listener for resizing
+
+    // Cleanup event listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <section className="xl:px-[80px] px-6 pt-20" id="features">
@@ -35,7 +52,13 @@ const WhatFundi = () => {
               className="sm:block flex items-center sm:gap-0 gap-[20px] w-full overflow-hidden rounded-[20px] cursor-pointer sm:bg-transparent bg-white transition-all duration-300 sm:hover:bg-white transform sm:hover:-translate-y-4 group sm:p-0 p-[20px] sm:ps-0 ps-[10px"
             >
               {/* card thumbnail */}
-              <div className="sm:w-full min-w-[140px] w-[140px] sm:h-[200px] min-h-[140px] h-[140px] md:h-[285px] sm:rounded-none rounded-full">
+              <div
+                className={`sm:w-full ${
+                  small
+                    ? "min-w-[80px] w-[80px] min-h-[80px] h-[80px]"
+                    : "min-w-[120px] w-[120px] min-h-[120px] h-[120px]"
+                } sm:h-[200px] md:h-[285px] sm:rounded-none rounded-full`}
+              >
                 <img
                   src={card.image}
                   alt={card.title}
@@ -44,15 +67,25 @@ const WhatFundi = () => {
               </div>
 
               {/* card body */}
-              <div className="sm:pr-4 py-6 flex w-full sm:justify-start items-center justify-between gap-4 sm:group-hover:pl-4 transition-[padding-left] duration-300">
-                <h3 className="text-xl md:text-[22px] leading-[1.4] font-axiforma-r text-night-black">
+              <div className="sm:pr-4 sm:py-6 flex w-full sm:justify-start items-center justify-between gap-4 sm:group-hover:pl-4 transition-[padding-left] duration-300">
+                <h3
+                  className={`${
+                    small ? "text-lg" : "text-xl"
+                  } md:text-[22px] leading-[1.4] font-axiforma-r text-night-black`}
+                >
                   {card.title}
                 </h3>
-                <span className="rounded-full sm:border-none border group-hover:border-red-500 transition-border duration-300 sm:w-fit sm:h-fit flex items-center justify-center w-[50.6px] h-[50.6px] sm:mt-[-3px]">
+                <span
+                  className={`rounded-full sm:border-none border group-hover:border-red-500 transition-border duration-300 sm:w-fit sm:h-fit flex items-center justify-center sm:mt-[-3px] ${
+                    small
+                      ? "w-[37px] min-w-[37px] min-h-[37px] h-[37px]"
+                      : "w-[50px] min-w-[50px] min-h-[50px] h-[50px]"
+                  }`}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
+                    width={small ? "20" : "24"} // Conditional width
+                    height={small ? "20" : "24"}
                     viewBox="0 0 24 24"
                     fill="none"
                     className="transition-colors duration-300 fill-[#1C1D24] group-hover:fill-red-500 my-auto"

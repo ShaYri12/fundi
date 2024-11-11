@@ -182,7 +182,7 @@ const Hospitality = () => {
 
                 <div>
                   {sections[0].description.map((desc, i) => (
-                    <div key={i} className="flex items-center gap-4 ">
+                    <div key={i} className="flex items-center sm:gap-4 gap-2">
                       <IoMdCheckmark className="text-green-500 text-[15px] min-w-[15px] mr-2" />{" "}
                       {/* Green checkmark */}
                       <p>{desc}</p>
