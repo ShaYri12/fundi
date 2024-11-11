@@ -8,29 +8,33 @@ const Hospitality = () => {
       heading: "Empower your journey, amplify your mission.",
       description: [
         " No contracts, full flexibility.",
-        " Tick Zero fees for hosting, websites, or dashboards.",
-        " Tick 100% of donations go directly to your organisation.",
-        " Tick Supporters cover all processing fees, ensuring no cost to you.",
-        " Tick Full transparency with real-time reporting.",
+        " Zero fees for hosting, websites, or dashboards.",
+        " 100% of donations go directly to your organisation.",
+        " Supporters cover all processing fees, ensuring no cost to you.",
+        " Full transparency with real-time reporting.",
       ],
       image: "/all.png",
     },
     {
+      heading: "Custom supporter dashboard",
       description:
         "Your own supporter-branded and analytic dashboard in minutes! Track campaign progress, monitor engagement, and gain insights—all from an intuitive interface designed to elevate your fundraising.",
       image: "/1.png",
     },
     {
+      heading: "Flexible giving options",
       description:
         "Empower your supporters with multiple ways to give, including round-ups, weekly subscriptions, or one-time donations. Plus, they can now use round-up donations to cover school fees, offering even more value to families.",
       image: "/2.png",
     },
     {
+      heading: "Real-time volunteer vetting",
       description:
         "Australia's first real-time volunteer vetting system provides instant checks on police history, criminal records, and working with children checks, ensuring safer, more efficient volunteer management.",
       image: "/3.png",
     },
     {
+      headgin: "Automated silent auctions",
       description:
         "Run unlimited silent auctions with automated bidding updates and self-checkout. Our system streamlines the entire process, allowing you to focus on engaging your supporters and maximising contributions.",
       image: "/4.png",
