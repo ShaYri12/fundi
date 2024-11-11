@@ -65,15 +65,15 @@ const Technology = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
           {features.map((feature, index) => (
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4" key={index}>
               {feature.Icon === "image" ? (
                 <img
                   src={feature.imgSrc}
-                  alt=""
+                  alt={feature.title}
                   className="w-[40px] h-[40px]"
                 />
               ) : (
-                <Icon className="text-[40px] text-[#ff5a65]" />
+                <feature.Icon className="text-[40px] text-[#ff5a65]" />
               )}
               <p className="text-base font-axiforma-r font-[600] text-night-black">
                 {feature.title}
