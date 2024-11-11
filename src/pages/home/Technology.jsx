@@ -38,18 +38,21 @@ const features = [
       "Seamlessly integrated social media features allow supporters to easily upload and share their content, fostering community engagement and amplifying your cause.",
   },
   {
-    Icon: () => (
-      <img src={currencyCircle} alt="" className="w-[40px] h-[40px]" />
-    ),
+    Icon: "image",
     title: "No integration fees",
     description:
       "Enjoy the advantage of no integration or dashboard fees, allowing you to implement our platform seamlessly without hidden costs.",
+    imgSrc: currencyCircle, // Provide the image source directly here
   },
 ];
 
 const FeatureCard = ({ Icon, title, description }) => (
   <div className="flex flex-col gap-4">
-    <Icon className="text-[40px] text-[#ff5a65]" />
+    {Icon === "image" ? (
+      <img src={imgSrc} alt="" className="w-[40px] h-[40px]" />
+    ) : (
+      <Icon className="text-[40px] text-[#ff5a65]" />
+    )}
     <p className="text-base font-axiforma-r font-[600] text-night-black">
       {title}
     </p>
