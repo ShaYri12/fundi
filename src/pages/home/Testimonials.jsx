@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Marquee from "react-marquee-slider";
 import { v4 as uuidv4 } from "uuid";
 import Image1 from "../../assets/TESTIMONIALS/1.png";
@@ -22,6 +22,7 @@ import Image18 from "../../assets/TESTIMONIALS/18.png";
 
 const Testimonials = () => {
   const [isHovered, setIsHovered] = useState(false);
+  const divRef = useRef(null);
 
   const testimonials = [
     {
@@ -171,6 +172,21 @@ const Testimonials = () => {
   const firstHalf = testimonials.slice(0, halfLength);
   const secondHalf = testimonials.slice(halfLength);
 
+  // Function to handle mouse out
+  const handleMouseOut = (event) => {
+    if (divRef.current && !divRef.current.contains(event.target)) {
+      setIsHovered(false);
+    }
+  };
+
+  // Add event listener when component mounts
+  useEffect(() => {
+    document.addEventListener("mousedown", handleMouseOut);
+    return () => {
+      document.removeEventListener("mousedown", handleMouseOut);
+    };
+  }, []);
+
   return (
     <section className="relative flex flex-col mx-auto pt-[60px] md:pt-[100px] pb-[30px] md:pb-[80px] rounded-t-[40px] lg:rounded-t-[80px] bg-[#f8f5f2]">
       <div className="md:max-w-[750px] max-w-[639px] mx-auto mx:px-0 px-[1.5rem] md:text-center text-left w-full flex flex-col mb-8 md:mb-[60px] gap-3 sm:gap-6">
@@ -213,7 +229,8 @@ const Testimonials = () => {
       </div>
 
       <div
-        className="hidden md:block w-full  md:px-0 px-4"
+        ref={divRef} // Reference to the div
+        className="hidden md:block w-full md:px-0 px-4"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
