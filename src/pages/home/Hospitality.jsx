@@ -64,30 +64,42 @@ const Hospitality = () => {
   }, []);
 
   const scrollDown = () => {
-    window.scrollBy({ top: 550, behavior: "smooth" });
+    const nextSection = sectionRef.current[1]; // Ensure we are targeting the second section (index 1)
+
+    if (nextSection) {
+      // Get the position of the next section with adjustments for any sticky headers or padding
+      const offsetTop =
+        nextSection.getBoundingClientRect().top + window.scrollY;
+
+      // Scroll to the next section and adjust for any top padding or header height
+      window.scrollTo({
+        top: offsetTop - 250, // Adjust `100` based on your header size or any padding/margin
+        behavior: "smooth", // Smooth scrolling effect
+      });
+    }
   };
 
   return (
-    <div className="relative md:min-h-[300vh] px-[6%] bg-gray-100">
-      <div className="max-w-7xl mx-auto py-12 hidden lg:grid grid-cols-2 gap-8">
+    <div className="relative  px-[6%] ">
+      <div className="max-w-7xl mx-auto py-4 hidden lg:grid grid-cols-2 gap-8">
         {/* Text Content */}
-        <div className="pb-10">
+        <div className="pb-20">
           {sections.map((section, index) => (
             <div
               key={index}
               ref={(el) => (sectionRef.current[index] = el)}
-              className={`py-20 mb-[100px] transition-opacity duration-500 ${
+              className={`py-20  transition-opacity duration-500 ${
                 index === activeIndex ? "opacity-100" : "opacity-20"
               }`} // Highlight active section
               data-section-index={index}
             >
-              <div className="ps-[24px] border-l-2 border-l-[#D1D1D3]">
+              <div className="ps-[24px] border-l-2 py-2 border-l-[#D1D1D3]">
                 <h1
                   className={`${
                     index === 0
                       ? "text-[40px] leading-[125%]"
                       : "text-[32px] leading-[1.4]"
-                  } font-[400] text-[#1c1d24] font-axiformaa mb-[24px]`}
+                  } font-[400] text-[#1c1d24] font-axiformaa mb-[10px]`}
                 >
                   {section?.heading}
                 </h1>
