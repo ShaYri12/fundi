@@ -13,31 +13,31 @@ const Hospitality = () => {
         " Supporters cover all processing fees, ensuring no cost to you.",
         " Full transparency with real-time reporting.",
       ],
-      image: "/all.png",
+      image: "/alll.png",
     },
     {
       heading: "Custom supporter dashboard",
       description:
         "Your own supporter-branded and analytic dashboard in minutes! Track campaign progress, monitor engagement, and gain insights—all from an intuitive interface designed to elevate your fundraising.",
-      image: "/1.png",
+      image: "/11.png",
     },
     {
       heading: "Flexible giving options",
       description:
         "Empower your supporters with multiple ways to give, including round-ups, weekly subscriptions, or one-time donations. Plus, they can now use round-up donations to cover school fees, offering even more value to families.",
-      image: "/2.png",
+      image: "/22.png",
     },
     {
       heading: "Real-time volunteer vetting",
       description:
         "Australia's first real-time volunteer vetting system provides instant checks on police history, criminal records, and working with children checks, ensuring safer, more efficient volunteer management.",
-      image: "/3.png",
+      image: "/33.png",
     },
     {
       heading: "Automated silent auctions",
       description:
         "Run unlimited silent auctions with automated bidding updates and self-checkout. Our system streamlines the entire process, allowing you to focus on engaging your supporters and maximising contributions.",
-      image: "/4.png",
+      image: "/44.png",
     },
   ];
 
@@ -68,30 +68,42 @@ const Hospitality = () => {
   }, []);
 
   const scrollDown = () => {
-    window.scrollBy({ top: 550, behavior: "smooth" });
+    const nextSection = sectionRef.current[1]; // Ensure we are targeting the second section (index 1)
+
+    if (nextSection) {
+      // Get the position of the next section with adjustments for any sticky headers or padding
+      const offsetTop =
+        nextSection.getBoundingClientRect().top + window.scrollY;
+
+      // Scroll to the next section and adjust for any top padding or header height
+      window.scrollTo({
+        top: offsetTop - 250, // Adjust `100` based on your header size or any padding/margin
+        behavior: "smooth", // Smooth scrolling effect
+      });
+    }
   };
 
   return (
-    <div className="relative lg:min-h-[300vh] px-[6%] bg-gray-100">
-      <div className="max-w-7xl mx-auto py-12 hidden lg:grid grid-cols-2 gap-8">
+    <div className="relative  px-[6%] ">
+      <div className="max-w-7xl mx-auto py-4 hidden lg:grid grid-cols-2 gap-8">
         {/* Text Content */}
-        <div className="pb-10">
+        <div className="pb-20">
           {sections.map((section, index) => (
             <div
               key={index}
               ref={(el) => (sectionRef.current[index] = el)}
-              className={`py-20 mb-[100px] transition-opacity duration-500 ${
+              className={`py-20  transition-opacity duration-500 ${
                 index === activeIndex ? "opacity-100" : "opacity-20"
               }`} // Highlight active section
               data-section-index={index}
             >
-              <div className="ps-[24px] border-l-2 border-l-[#D1D1D3]">
+              <div className="ps-[24px] border-l-2 py-2 border-l-[#D1D1D3]">
                 <h1
                   className={`${
                     index === 0
                       ? "text-[40px] leading-[125%]"
                       : "text-[32px] leading-[1.4]"
-                  } font-[400] text-[#1c1d24] font-axiformaa mb-[24px]`}
+                  } font-[400] text-[#1c1d24] font-axiformaa mb-[10px]`}
                 >
                   {section?.heading}
                 </h1>
@@ -144,7 +156,7 @@ const Hospitality = () => {
               key={index}
               src={section.image}
               alt="Hospitality"
-              className={`absolute top-10 w-full h-auto object-cover rounded-lg transition-opacity duration-500 ${
+              className={`absolute top-0 h-full w-auto left-1/2 -translate-x-1/2 object-cover rounded-lg transition-opacity duration-500 ${
                 index === activeIndex
                   ? "opacity-100"
                   : "opacity-0 animate-fadeOut"
