@@ -78,7 +78,7 @@ const Brands = () => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
-        setVelocity(4); // Slow down on small devices
+        setVelocity(3); // Slow down on small devices
       } else {
         setVelocity(8); // Default velocity for larger devices
       }
