@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import heroVideo from "../../assets/hero-video.mp4";
+import heroImg from "../../assets/hero-video-img.webp";
 
 const Hero = () => {
   const [visibleBubbleIndex, setVisibleBubbleIndex] = useState(0);
@@ -94,12 +95,13 @@ const Hero = () => {
                       ref={videoRef}
                       className="homepage-video relative z-0 rounded-[100px] h-full w-full object-cover overflow-hidden"
                       src={heroVideo}
-                      preload=""
+                      preload="auto"
                       loop
                       autoPlay
                       muted
                       webkitPlaysinline="true"
                       playsInline
+                      poster={heroImg}
                     ></video>
 
                     {isVideoPlaying &&
