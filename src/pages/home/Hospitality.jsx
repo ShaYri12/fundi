@@ -42,70 +42,61 @@ const Hospitality = () => {
   ];
 
   const sectionRef = useRef([]);
-  const [activeIndex, setActiveIndex] = useState(0); // Track active section index
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: "0px",
-      threshold: 1, // Trigger when 56% of the element is visible
+      threshold: 1, // Trigger when 50% of the element is visible
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        const sectionIndex = entry.target.getAttribute("data-section-index");
-        if (entry.intersectionRatio >= 0.56) {
-          // Element has entered at least 56% visibility
-          setActiveIndex(Number(sectionIndex));
-        } else {
-          // Element has exited 56% visibility (revert opacity if needed)
-          setActiveIndex((prevIndex) =>
-            prevIndex === Number(sectionIndex) ? -1 : prevIndex
-          );
+        const sectionIndex = parseInt(
+          entry.target.getAttribute("data-section-index"),
+          10
+        );
+
+        if (entry.isIntersecting) {
+          setActiveIndex(sectionIndex);
         }
       });
     }, observerOptions);
 
-    // Observe each section element
     sectionRef.current.forEach((section) => observer.observe(section));
 
     return () => {
-      // Clean up observers
       sectionRef.current.forEach((section) => observer.unobserve(section));
     };
   }, []);
 
   const scrollDown = () => {
-    const nextSection = sectionRef.current[1]; // Ensure we are targeting the second section (index 1)
-
+    const nextSection = sectionRef.current[1];
     if (nextSection) {
-      // Get the position of the next section with adjustments for any sticky headers or padding
       const offsetTop =
         nextSection.getBoundingClientRect().top + window.scrollY;
-
-      // Scroll to the next section and adjust for any top padding or header height
       window.scrollTo({
-        top: offsetTop - 250, // Adjust `100` based on your header size or any padding/margin
-        behavior: "smooth", // Smooth scrolling effect
+        top: offsetTop - 250,
+        behavior: "smooth",
       });
     }
   };
 
   return (
-    <div className="relative  px-[6%] ">
+    <div className="relative px-[6%]">
       <div className="max-w-7xl mx-auto py-4 hidden lg:grid grid-cols-2 gap-8">
-        {/* Text Content */}
         <div className="pb-20">
           {sections.map((section, index) => (
             <div
               key={index}
               ref={(el) => (sectionRef.current[index] = el)}
-              className={`py-12  transition-opacity duration-500 ${
+              className={`py-9 transition-opacity duration-500 ${
                 index === activeIndex ? "opacity-100" : "opacity-20"
-              }`} // Highlight active section
+              }`}
               data-section-index={index}
             >
-              <div className="ps-[24px] border-l-2 py-2 border-l-[#D1D1D3]">
+              <div className="ps-[24px] border-l-2 py-2 border-l-black">
                 <h1
                   className={`${
                     index === 0
@@ -113,23 +104,21 @@ const Hospitality = () => {
                       : "text-[32px] leading-[1.4]"
                   } font-[400] text-[#1c1d24] font-axiformaa mb-[10px]`}
                 >
-                  {section?.heading}
+                  {section.heading}
                 </h1>
 
                 <div className="text-base text-[#494951]">
-                  {/* Display green checkmark before the description for the first section */}
                   {index === 0 ? (
                     <div>
                       {section.description.map((desc, i) => (
                         <div key={i} className="flex items-center mb-[8px]">
-                          <IoMdCheckmark className="text-green-500 text-[18px] min-w-[18px] mr-2" />{" "}
-                          {/* Green checkmark */}
+                          <IoMdCheckmark className="text-green-500 text-[18px] min-w-[18px] mr-2" />
                           <p>{desc}</p>
                         </div>
                       ))}
                     </div>
                   ) : (
-                    <p>{section.description}</p> // Display description as is for other sections
+                    <p>{section.description}</p>
                   )}
                 </div>
               </div>
@@ -145,19 +134,6 @@ const Hospitality = () => {
           ))}
         </div>
 
-        {/* Image with Cross-Fade Effect */}
-        {/* <div className="sticky top-24 w-full h-[80vh] flex items-center">
-          {sections.map((section, index) => (
-            <img
-              key={index}
-              src={section.image}
-              alt="Hospitality"
-              className={`absolute top-10  w-full h-auto object-cover rounded-lg transition-opacity duration-500 ${
-                index === activeIndex ? "opacity-100" : "opacity-0"
-              }`}
-            />
-          ))}
-        </div> */}
         <div className="sticky top-24 w-full h-[80vh] flex items-center">
           {sections.map((section, index) => (
             <img
@@ -165,52 +141,38 @@ const Hospitality = () => {
               src={section.image}
               alt="Hospitality"
               className={`absolute top-0 h-full w-auto left-1/2 -translate-x-1/2 object-cover rounded-lg transition-opacity duration-500 ${
-                index === activeIndex
-                  ? "opacity-100"
-                  : "opacity-0 animate-fadeOut"
+                index === activeIndex ? "opacity-100" : "opacity-0"
               }`}
               style={{
                 transition: "opacity 0.5s ease-in-out",
-                display: index === activeIndex ? "block" : "none", // This ensures it’s hidden after fading out
+                display: index === activeIndex ? "block" : "none",
               }}
             />
           ))}
         </div>
       </div>
 
-      {/* for small & medium devices only */}
-      <div className=" mx-auto py-12 space-y-9 lg:hidden ">
+      {/* Small & Medium Devices Content */}
+      <div className="mx-auto py-12 space-y-9 lg:hidden">
         <div className="w-full h-auto flex items-center">
           <img
             src={sections[0].image}
             alt="Hospitality"
-            className={` w-full h-auto object-cover rounded-lg`}
+            className="w-full h-auto object-cover rounded-lg"
           />
         </div>
-        {/* Text Content */}
-        <div className="">
-          <div>
-            <div className="ps-[9px] space-y-5">
-              <h1
-                className={`text-[25px] leading-[125%] font-[400] text-[#1c1d24] font-axiformaa `}
-              >
-                {sections[0]?.heading}
-              </h1>
+        <div className="ps-[9px] space-y-5">
+          <h1 className="text-[25px] leading-[125%] font-[400] text-[#1c1d24] font-axiformaa">
+            {sections[0]?.heading}
+          </h1>
 
-              <div className="text-base text-[#494951]">
-                {/* Display green checkmark before the description for the first section */}
-
-                <div>
-                  {sections[0].description.map((desc, i) => (
-                    <div key={i} className="flex items-center sm:gap-4 gap-2">
-                      <IoMdCheckmark className="text-green-500 text-[15px] min-w-[15px] mr-2" />{" "}
-                      {/* Green checkmark */}
-                      <p>{desc}</p>
-                    </div>
-                  ))}
-                </div>
+          <div className="text-base text-[#494951]">
+            {sections[0].description.map((desc, i) => (
+              <div key={i} className="flex items-center sm:gap-4 gap-2">
+                <IoMdCheckmark className="text-green-500 text-[15px] min-w-[15px] mr-2" />
+                <p>{desc}</p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
