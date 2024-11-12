@@ -16,12 +16,6 @@ const Hospitality = () => {
       image: "/alll.png",
     },
     {
-      heading: "Custom supporter dashboard",
-      description:
-        "Your own supporter-branded and analytic dashboard in minutes! Track campaign progress, monitor engagement, and gain insights—all from an intuitive interface designed to elevate your fundraising.",
-      image: "/11.png",
-    },
-    {
       heading: "Flexible giving options",
       description:
         "Empower your supporters with multiple ways to give, including round-ups, weekly subscriptions, or one-time donations. Plus, they can now use round-up donations to cover school fees, offering even more value to families.",
@@ -39,6 +33,12 @@ const Hospitality = () => {
         "Run unlimited silent auctions with automated bidding updates and self-checkout. Our system streamlines the entire process, allowing you to focus on engaging your supporters and maximising contributions.",
       image: "/44.png",
     },
+    {
+      heading: "Custom supporter dashboard",
+      description:
+        "Your own supporter-branded and analytic dashboard in minutes! Track campaign progress, monitor engagement, and gain insights—all from an intuitive interface designed to elevate your fundraising.",
+      image: "/11.png",
+    },
   ];
 
   const sectionRef = useRef([]);
@@ -48,21 +48,29 @@ const Hospitality = () => {
     const observerOptions = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.5,
+      threshold: 1, // Trigger when 56% of the element is visible
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const sectionIndex = entry.target.getAttribute("data-section-index");
+        const sectionIndex = entry.target.getAttribute("data-section-index");
+        if (entry.intersectionRatio >= 0.56) {
+          // Element has entered at least 56% visibility
           setActiveIndex(Number(sectionIndex));
+        } else {
+          // Element has exited 56% visibility (revert opacity if needed)
+          setActiveIndex((prevIndex) =>
+            prevIndex === Number(sectionIndex) ? -1 : prevIndex
+          );
         }
       });
     }, observerOptions);
 
+    // Observe each section element
     sectionRef.current.forEach((section) => observer.observe(section));
 
     return () => {
+      // Clean up observers
       sectionRef.current.forEach((section) => observer.unobserve(section));
     };
   }, []);
@@ -92,7 +100,7 @@ const Hospitality = () => {
             <div
               key={index}
               ref={(el) => (sectionRef.current[index] = el)}
-              className={`py-20  transition-opacity duration-500 ${
+              className={`py-12  transition-opacity duration-500 ${
                 index === activeIndex ? "opacity-100" : "opacity-20"
               }`} // Highlight active section
               data-section-index={index}
