@@ -175,10 +175,10 @@ const Testimonials = () => {
     <section className="relative flex flex-col mx-auto pt-[60px] md:pt-[100px] pb-[30px] md:pb-[80px] rounded-t-[40px] lg:rounded-t-[80px] bg-[#f8f5f2]">
       <div className="md:max-w-[750px] max-w-[639px] mx-auto mx:px-0 px-[1.5rem] md:text-center text-left w-full flex flex-col mb-8 md:mb-[60px] gap-3 sm:gap-6">
         <h3 className="md:text-[40px] text-[32px] md:leading-[1.5] text-night-black font-axiforma-r">
-          The best organisations run on fundi.
+          The best organisations run on fundi
         </h3>
         <p className="inter-f text-base text-[#494951]">
-          Hear what our partners say about the power of fundi
+          Hear what our partners say about the power of fundi.
         </p>
       </div>
 
