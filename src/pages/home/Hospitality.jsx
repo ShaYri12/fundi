@@ -8,29 +8,33 @@ const Hospitality = () => {
       heading: "Empower your journey, amplify your mission.",
       description: [
         " No contracts, full flexibility.",
-        " Tick Zero fees for hosting, websites, or dashboards.",
-        " Tick 100% of donations go directly to your organisation.",
-        " Tick Supporters cover all processing fees, ensuring no cost to you.",
-        " Tick Full transparency with real-time reporting.",
+        " Zero fees for hosting, websites, or dashboards.",
+        " 100% of donations go directly to your organisation.",
+        " Supporters cover all processing fees, ensuring no cost to you.",
+        " Full transparency with real-time reporting.",
       ],
       image: "/all.png",
     },
     {
+      heading: "Custom supporter dashboard",
       description:
-        "Empower your supporters with multiple ways to give, including round-ups, weekly subscriptions, or one-time donations. Plus, they can now use round-up donations to cover school fees, offering even more value to families.",
+        "Your own supporter-branded and analytic dashboard in minutes! Track campaign progress, monitor engagement, and gain insights—all from an intuitive interface designed to elevate your fundraising.",
       image: "/1.png",
     },
     {
+      heading: "Flexible giving options",
       description:
         "Empower your supporters with multiple ways to give, including round-ups, weekly subscriptions, or one-time donations. Plus, they can now use round-up donations to cover school fees, offering even more value to families.",
       image: "/2.png",
     },
     {
+      heading: "Real-time volunteer vetting",
       description:
         "Australia's first real-time volunteer vetting system provides instant checks on police history, criminal records, and working with children checks, ensuring safer, more efficient volunteer management.",
       image: "/3.png",
     },
     {
+      heading: "Automated silent auctions",
       description:
         "Run unlimited silent auctions with automated bidding updates and self-checkout. Our system streamlines the entire process, allowing you to focus on engaging your supporters and maximising contributions.",
       image: "/4.png",
@@ -110,7 +114,7 @@ const Hospitality = () => {
                     <div>
                       {section.description.map((desc, i) => (
                         <div key={i} className="flex items-center mb-[8px]">
-                          <IoMdCheckmark className="text-green-500 text-[18px] mr-2" />{" "}
+                          <IoMdCheckmark className="text-green-500 text-[18px] min-w-[18px] mr-2" />{" "}
                           {/* Green checkmark */}
                           <p>{desc}</p>
                         </div>
@@ -190,8 +194,8 @@ const Hospitality = () => {
 
                 <div>
                   {sections[0].description.map((desc, i) => (
-                    <div key={i} className="flex items-center gap-4 ">
-                      <IoMdCheckmark className="text-green-500 text-[15px] mr-2" />{" "}
+                    <div key={i} className="flex items-center sm:gap-4 gap-2">
+                      <IoMdCheckmark className="text-green-500 text-[15px] min-w-[15px] mr-2" />{" "}
                       {/* Green checkmark */}
                       <p>{desc}</p>
                     </div>

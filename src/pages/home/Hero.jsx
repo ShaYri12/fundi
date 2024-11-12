@@ -66,7 +66,7 @@ const Hero = () => {
                 <div className="gap-y-6 flex flex-col lg:max-w-[520px] sm:max-w-[90%] xxl:max-w-full relative sm:py-0 py-5">
                   <div className="text-content cms-content">
                     <h3 className="md:max-w-[485px] sm:text-[56px] text-[40px] font-axiformaa text-[#1c1d24] font-[400] mb-[1rem] sm:leading-[1.25] leading-[1.3] lg:pe-[35px]">
-                      A platform for the new era of fundraising.” &nbsp;
+                      A platform for the new era of fundraising. &nbsp;
                     </h3>
                     <div className="md:max-w-[530px] lg:max-w-[430px] sm:max-w-[90%]">
                       <p className="text-[#494951] text-[16px]">
@@ -80,7 +80,7 @@ const Hero = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <button className="bg-[#ff5a65] hover:bg-[#ff3d5a] text-[15px] text-white font-medium py-[0.625rem] px-[1.5rem] rounded-full transition-colors flex items-center gap-2 w-fit">
+                    <button className="bg-[#ff5a65] hover:bg-[#ff3d5a] text-[15px] text-white font-medium py-[0.625rem] px-[1.5rem] rounded-full transition-colors flex items-center gap-2 sm:w-fit w-full flex justify-center items-center">
                       Book a demo
                     </button>
                   </a>

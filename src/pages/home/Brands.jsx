@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Marquee from "react-marquee-slider";
 import Logo1 from "../../assets/logos/acu.png";
@@ -33,6 +33,7 @@ import Logo29 from "../../assets/logos/whitehill.png";
 
 const Brands = () => {
   const [isHovered, setIsHovered] = useState(false);
+  const [velocity, setVelocity] = useState(8);
   const icons = [
     Logo1,
     Logo2,
@@ -67,11 +68,28 @@ const Brands = () => {
 
   const getLogoStyle = () => {
     return {
-      filter: "grayscale(100%) brightness(0) contrast(100%)", // Convert the logo to a blackish color
+      filter: "grayscale(100%) brightness(45%) contrast(100%)", // Convert the logo to a blackish color
       backgroundColor: "transparent", // Ensure the background is transparent
       mixBlendMode: "normal", // Ensure logos blend normally
     };
   };
+
+  // Adjust velocity based on screen size
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setVelocity(4); // Slow down on small devices
+      } else {
+        setVelocity(8); // Default velocity for larger devices
+      }
+    };
+
+    handleResize(); // Set the initial velocity based on the current window size
+    window.addEventListener("resize", handleResize); // Add event listener for resizing
+
+    // Cleanup event listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <section className="pt-[60px] overflow-hidden">
@@ -90,7 +108,7 @@ const Brands = () => {
       >
         {/* Marquee Slider */}
         <Marquee
-          velocity={isHovered ? 0 : 8} // Stop the marquee when hovered
+          velocity={isHovered ? 0 : velocity}
           minScale={0.7}
           resetAfterTries={200}
           direction="rtl"
@@ -101,7 +119,7 @@ const Brands = () => {
               key={index}
               src={icon}
               alt="banner-icon"
-              className="max-h-16 md:max-h-20 w-auto my-0 mx-10 object-contain"
+              className="max-h-16 md:max-h-20 w-auto my-0 md:mx-10 mx-7 object-contain"
               loading="lazy"
               style={getLogoStyle()}
             />
