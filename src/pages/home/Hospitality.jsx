@@ -44,32 +44,33 @@ const Hospitality = () => {
   const sectionRef = useRef([]);
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const handleScroll = () => {
+    const windowHeight = window.innerHeight;
+    let newActiveIndex = activeIndex;
+
+    sectionRef.current.forEach((section, index) => {
+      const rect = section.getBoundingClientRect();
+      const sectionCenter = rect.top + rect.height / 2;
+      const distanceToCenter = Math.abs(sectionCenter - windowHeight / 2) + 10;
+
+      // Check if the next section comes into the middle of the screen
+      if (distanceToCenter < 100) {
+        newActiveIndex = index;
+      }
+    });
+
+    if (newActiveIndex !== activeIndex) {
+      setActiveIndex(newActiveIndex);
+    }
+  };
+
   useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 1, // Trigger when 50% of the element is visible
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const sectionIndex = parseInt(
-          entry.target.getAttribute("data-section-index"),
-          10
-        );
-
-        if (entry.isIntersecting) {
-          setActiveIndex(sectionIndex);
-        }
-      });
-    }, observerOptions);
-
-    sectionRef.current.forEach((section) => observer.observe(section));
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      sectionRef.current.forEach((section) => observer.unobserve(section));
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [activeIndex]);
 
   const scrollDown = () => {
     const nextSection = sectionRef.current[1];
