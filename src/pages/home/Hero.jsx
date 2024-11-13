@@ -20,6 +20,14 @@ const Hero = () => {
 
   useEffect(() => {
     const videoElement = videoRef.current;
+    if (videoElement) {
+      videoElement.muted = true;
+      videoElement.playsInline = true;
+      videoElement.load();
+      videoElement
+        .play()
+        .catch((error) => console.log("Video Play Error:", error));
+    }
 
     const updateBubbleIndex = () => {
       if (isVideoPlaying && videoElement && videoElement.duration) {
