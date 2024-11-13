@@ -99,9 +99,10 @@ const Hero = () => {
                       loop
                       autoPlay
                       muted
-                      webkitPlaysinline="true"
                       playsInline
+                      webkit-playsinline="true"
                       poster={heroImg}
+                      loading="lazy"
                     ></video>
 
                     {isVideoPlaying &&
